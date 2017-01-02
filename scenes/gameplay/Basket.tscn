@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=1]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://assets/textures/gameplay/basket.tex" type="Texture" id=1]
 
 [node name="BasketBody" type="RigidBody2D"]
 
@@ -25,6 +25,7 @@ damp_override/angular = -1.0
 
 [node name="Basket" type="Sprite" parent="."]
 
+transform/scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 1 )
 
 

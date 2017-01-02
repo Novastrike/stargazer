@@ -8,38 +8,37 @@
 
 transform/pos = Vector2( 294.765, 759.73 )
 
-[node name="PinRope" type="PinJoint2D" parent="."]
+[node name="BalloonBody" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 0.88739, 63.6884 )
-node_a = NodePath("BalloonBody")
-node_b = NodePath("PinBasket/RopeBody/Rope")
-bias/bias = 0.0
-collision/exclude_nodes = true
-softness = 1.0
-
-[node name="BalloonBody" parent="PinRope" instance=ExtResource( 1 )]
-
-transform/pos = Vector2( -0.88739, -63.6884 )
 transform/scale = Vector2( 2, 2 )
 gravity_scale = -10.0
 
-[node name="PinBasket" type="PinJoint2D" parent="PinRope"]
+[node name="PinRope" type="PinJoint2D" parent="."]
 
-transform/pos = Vector2( 1, 98 )
-node_a = NodePath("RopeBody/Rope3")
-node_b = NodePath("BasketBody")
+transform/pos = Vector2( 0.88739, 63.6884 )
+node_a = NodePath("../BalloonBody")
+node_b = NodePath("../RopeBody")
 bias/bias = 0.0
 collision/exclude_nodes = true
 softness = 1.0
 
-[node name="RopeBody" parent="PinRope/PinBasket" instance=ExtResource( 2 )]
+[node name="RopeBody" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( -0.88739, -79.6884 )
+transform/pos = Vector2( 1, 82 )
 transform/scale = Vector2( 0.5, 0.5 )
 
-[node name="BasketBody" parent="PinRope/PinBasket" instance=ExtResource( 3 )]
+[node name="PinBasket" type="PinJoint2D" parent="."]
 
-transform/pos = Vector2( -1.88739, 33.3116 )
+transform/pos = Vector2( 1.88739, 161.688 )
+node_a = NodePath("../RopeBody/Rope3")
+node_b = NodePath("../BasketBody")
+bias/bias = 0.0
+collision/exclude_nodes = true
+softness = 1.0
+
+[node name="BasketBody" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 0, 195 )
 
 
-[editable path="PinRope/PinBasket/RopeBody"]
+[editable path="RopeBody"]
