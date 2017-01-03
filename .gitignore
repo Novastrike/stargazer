@@ -29,3 +29,7 @@
 *.app
 
 desktop.ini
+
+# Backup files
+*~
+*.bak

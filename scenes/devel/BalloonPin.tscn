@@ -10,7 +10,6 @@ transform/pos = Vector2( 294.765, 759.73 )
 
 [node name="BalloonBody" parent="." instance=ExtResource( 1 )]
 
-transform/scale = Vector2( 2, 2 )
 gravity_scale = -10.0
 
 [node name="PinRope" type="PinJoint2D" parent="."]
