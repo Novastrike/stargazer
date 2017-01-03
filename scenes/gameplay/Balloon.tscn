@@ -1,18 +1,26 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://scripts/devel/_simple_move.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/gameplay/balloon.tex" type="Texture" id=2]
 
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
 [node name="BalloonBody" type="RigidBody2D"]
 
 input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 4.35527, 0, 0, 5.66184, -0.148431, -15.2136 )
+shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 mode = 0
 mass = 1.0
 friction = 1.0
 bounce = 0.0
-gravity_scale = -1.0
+gravity_scale = -10.0
 custom_integrator = false
 continuous_cd = 0
 contacts_reported = 0
@@ -29,5 +37,13 @@ script/script = ExtResource( 1 )
 
 transform/scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+transform/pos = Vector2( -0.148431, -15.2136 )
+transform/scale = Vector2( 4.35527, 5.66184 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
 
 
