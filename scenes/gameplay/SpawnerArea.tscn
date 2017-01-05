@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 397.992, 10 )
+
+[node name="SpawnerArea" type="Area2D" groups=[ "spawner-area" ]]
+
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1.52767, 0, 0, 10.1566, 290, -91.9643 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="Area" type="CollisionShape2D" parent="."]
+
+transform/pos = Vector2( 290, -91.9643 )
+transform/scale = Vector2( 1.52767, 10.1566 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+

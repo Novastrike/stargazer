@@ -1,0 +1,107 @@
+[gd_scene load_steps=8 format=1]
+
+[ext_resource path="res://scripts/devel/_spawner.gd" type="Script" id=1]
+[ext_resource path="res://scenes/gameplay/StarBase.tscn" type="PackedScene" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://scenes/gameplay/Balloon.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/gameplay/SpawnerArea.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/gameplay/Rope.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/gameplay/Basket.tscn" type="PackedScene" id=7]
+
+[node name="SpawnerTest" type="Node2D"]
+
+script/script = ExtResource( 1 )
+star = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+
+process_mode = 0
+wait_time = 1.0
+one_shot = false
+autostart = true
+
+[node name="Node2D" type="Node2D" parent="."]
+
+transform/pos = Vector2( 294.765, 759.73 )
+
+[node name="icon" type="Sprite" parent="Node2D"]
+
+visibility/visible = false
+transform/pos = Vector2( -5.85959, -179.936 )
+transform/scale = Vector2( 10.8735, 18.5883 )
+z/z = -2
+texture = ExtResource( 3 )
+modulate = Color( 0.925781, 0.10849, 0.10849, 1 )
+
+[node name="BalloonBody" parent="Node2D" instance=ExtResource( 4 )]
+
+gravity_scale = -5.0
+
+[node name="Camera2D" type="Camera2D" parent="Node2D/BalloonBody"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+limit/smoothed = false
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
+
+[node name="SpawnerArea" parent="Node2D/BalloonBody/Camera2D" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( -294.765, -759.73 )
+
+[node name="RopeBody" parent="Node2D" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 2.76053, 97.8446 )
+transform/scale = Vector2( 0.5, 0.5 )
+z/z = -1
+
+[node name="BasketBody" parent="Node2D" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 2.20062, 216.566 )
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="Node2D"]
+
+transform/pos = Vector2( 0.902466, 44.3673 )
+transform/scale = Vector2( 1, 2.28126 )
+node_a = NodePath("../BalloonBody")
+node_b = NodePath("../BasketBody")
+bias/bias = 0.0
+collision/exclude_nodes = true
+length = 50.0
+rest_length = 0.0
+stiffness = 20.0
+damping = 1.0
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Node2D"]
+
+transform/pos = Vector2( 2, 47.0001 )
+node_a = NodePath("../BalloonBody")
+node_b = NodePath("../RopeBody")
+bias/bias = 0.0
+collision/exclude_nodes = true
+softness = 0.0
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="Node2D"]
+
+transform/pos = Vector2( 2, 152 )
+node_a = NodePath("../RopeBody")
+node_b = NodePath("../BasketBody")
+bias/bias = 0.0
+collision/exclude_nodes = true
+softness = 0.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+
