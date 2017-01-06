@@ -18,5 +18,6 @@ func gotcha():
 func _on_AnimationPlayer_finished():
 	if anime.get_current_animation() == 'explode':
 		emit_signal('explode')
+		queue_f0ree()
 	elif anime.get_current_animation() == 'gotcha':
 		emit_signal('gotcha')
