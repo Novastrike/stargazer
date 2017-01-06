@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://scripts/devel/_simple_move.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/gameplay/balloon.tex" type="Texture" id=2]
@@ -8,11 +8,16 @@
 custom_solver_bias = 0.0
 radius = 10.0
 
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
 [node name="BalloonBody" type="RigidBody2D"]
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 4.35527, 0, 0, 5.66184, -0.148431, -15.2136 )
+shapes/0/transform = Matrix32( 3.98628, 0, 0, 5.12687, -0.945306, -14.1682 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -40,10 +45,31 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-transform/pos = Vector2( -0.148431, -15.2136 )
-transform/scale = Vector2( 4.35527, 5.66184 )
+transform/pos = Vector2( -0.945306, -14.1682 )
+transform/scale = Vector2( 3.98628, 5.12687 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 4.6287, 0, 0, 5.80314, -0.723264, -14.7939 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+transform/pos = Vector2( -0.723264, -14.7939 )
+transform/scale = Vector2( 4.6287, 5.80314 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[connection signal="body_enter" from="Area2D" to="." method="_on_Area2D_body_enter"]
 
 

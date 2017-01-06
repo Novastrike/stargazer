@@ -15,8 +15,10 @@ func _ready():
 func spawn_star(pos):
 	var new_spawn = Position2D.new()
 	new_spawn.set_pos(pos)
-	get_node("Node2D/BalloonBody/Camera2D/SpawnerArea").add_child(new_spawn)
-	new_spawn.add_child(star.instance())
+	var spawners = get_tree().get_nodes_in_group('spawner-area')
+	if spawners.size() > 0:
+		spawners[0].add_child(new_spawn)
+		new_spawn.add_child(star.instance())
 
 func _on_Timer_timeout():
 	if testing:

@@ -9,11 +9,9 @@ func _ready():
 	pass
 
 func explode():
-	# play explode animation
 	anime.play("explode")
 
 func gotcha():
-	# play gotcha animation
 	anime.play("gotcha")
 
 
