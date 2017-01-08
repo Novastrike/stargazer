@@ -20,4 +20,4 @@ func _on_Timer_timeout():
 		spawn_star()
 
 func _on_BalloonBody_explode():
-	pass
+	get_node("AnimationPlayer").play("died")

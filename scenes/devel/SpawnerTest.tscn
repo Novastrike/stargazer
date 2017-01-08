@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://scripts/devel/_spawner.gd" type="Script" id=1]
 [ext_resource path="res://scenes/gameplay/StarBase.tscn" type="PackedScene" id=2]
@@ -8,6 +8,28 @@
 [ext_resource path="res://scenes/gameplay/Basket.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/gameplay/BalloonCamera.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/gameplay/SpawnerArea.tscn" type="PackedScene" id=8]
+
+[sub_resource type="CanvasItemShader" id=2]
+
+_code = { "fragment":"uniform color base;\n\nvec3 c = texscreen(SCREEN_UV);\nfloat v = dot(c, vec3(0.33333, 0.33333,0.33333));\nv = sqrt(v);\nv *= v;\n\nCOLOR .rgb = base.rgb * v;\n", "fragment_ofs":0, "light":"", "light_ofs":0, "vertex":"", "vertex_ofs":0 }
+
+[sub_resource type="CanvasItemMaterial" id=3]
+
+shader/shader = SubResource( 2 )
+shader/shading_mode = 0
+shader_param/base = Color( 0.722656, 0.683136, 0.683136, 1 )
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "died"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("BalloonCamera/YouDied:visibility/opacity")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0.0, 1.0 ] }
 
 [node name="SpawnerTest" type="Node2D"]
 
@@ -27,6 +49,7 @@ transform/pos = Vector2( 241.765, 343.73 )
 
 [node name="icon" type="Sprite" parent="Node2D"]
 
+visibility/visible = false
 transform/pos = Vector2( -5.85959, -179.936 )
 transform/scale = Vector2( 10.8735, 18.5883 )
 z/z = -2
@@ -37,7 +60,6 @@ modulate = Color( 0.925781, 0.10849, 0.10849, 1 )
 
 friction = 0.0
 gravity_scale = -5.0
-debug = true
 
 [node name="RopeBody" parent="Node2D" instance=ExtResource( 5 )]
 
@@ -48,7 +70,6 @@ z/z = -1
 [node name="BasketBody" parent="Node2D" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 2.20062, 216.566 )
-z/z = -1
 
 [node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="Node2D"]
 
@@ -83,6 +104,7 @@ softness = 0.0
 
 [node name="BalloonCamera" parent="." instance=ExtResource( 7 )]
 
+z/z = 1
 offset = Vector2( 0, 0 )
 
 [node name="SpawnerArea" parent="BalloonCamera" instance=ExtResource( 8 )]
@@ -90,7 +112,62 @@ offset = Vector2( 0, 0 )
 transform/pos = Vector2( 3.05176e-05, -470 )
 debug = false
 
+[node name="YouDied" type="Control" parent="BalloonCamera"]
+
+visibility/opacity = 0.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+
+[node name="ColorFrame" type="ColorFrame" parent="BalloonCamera/YouDied"]
+
+material/material = SubResource( 3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 480.0
+margin/bottom = 640.0
+color = Color( 1, 1, 1, 1 )
+
+[node name="Label" type="Label" parent="BalloonCamera/YouDied"]
+
+rect/scale = Vector2( 5, 5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 96.0
+margin/bottom = 128.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "YOU DIED"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="Position2D" type="Position2D" parent="." groups=[ "spawn-box" ]]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/died = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
