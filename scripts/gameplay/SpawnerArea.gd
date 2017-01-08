@@ -1,4 +1,3 @@
-tool
 extends Area2D
 
 export(PackedScene) var test_scene
@@ -9,6 +8,7 @@ onready var spawn_box = get_node("Spawn")
 
 func _ready():
 	if debug:
+		get_node("TimerTest").start()
 		spawn_at(test_scene.instance(), Vector2(0, 0))
 		spawn_random(test_scene.instance())
 
@@ -24,6 +24,13 @@ func spawn_at(node, pos):
 
 func spawn_random(node):
 	randomize()
-	var x = rand_range(get_pos().x, spawn_area.get_size().width+1)
-	var y = rand_range(get_pos().y, spawn_area.get_size().height+1)
-	spawn_at(node, Vector2(x, y))
+	spawn_at(node, Vector2(x_random(), y_random()))
+
+func x_random():
+	return int(rand_range(spawn_area.get_pos().x, spawn_area.get_size().width+1))
+
+func y_random():
+	return int(rand_range(spawn_area.get_pos().y, spawn_area.get_size().height+1))
+
+func _on_TimerTest_timeout():
+	spawn_random(test_scene.instance())

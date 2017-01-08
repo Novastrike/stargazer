@@ -5,7 +5,7 @@
 
 [node name="SpawnerArea" type="Area2D" groups=[ "spawner-area" ]]
 
-transform/pos = Vector2( -3.8147e-06, 0 )
+transform/pos = Vector2( -3.8147e-06, -1.14441e-05 )
 transform/scale = Vector2( 1, 1 )
 input/pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -30,5 +30,14 @@ margin/bottom = 160.0
 [node name="Spawn" type="Position2D" parent="."]
 
 transform/scale = Vector2( 1, 1 )
+
+[node name="TimerTest" type="Timer" parent="."]
+
+process_mode = 0
+wait_time = 2.0
+one_shot = false
+autostart = false
+
+[connection signal="timeout" from="TimerTest" to="." method="_on_TimerTest_timeout"]
 
 

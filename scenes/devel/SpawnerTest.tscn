@@ -60,7 +60,7 @@ drag_margin/bottom = 0.2
 
 [node name="SpawnerArea" parent="Node2D/BalloonBody/Camera2D" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( -241.765, -318.73 )
+transform/pos = Vector2( -241.765, -493.73 )
 
 [node name="RopeBody" parent="Node2D" instance=ExtResource( 6 )]
 
