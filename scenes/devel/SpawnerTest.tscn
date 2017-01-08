@@ -36,7 +36,6 @@ modulate = Color( 0.925781, 0.10849, 0.10849, 1 )
 [node name="BalloonBody" parent="Node2D" instance=ExtResource( 4 )]
 
 friction = 0.0
-bounce = 1.0
 gravity_scale = -5.0
 debug = true
 
@@ -50,7 +49,6 @@ z/z = -1
 
 transform/pos = Vector2( 2.20062, 216.566 )
 z/z = -1
-bounce = 1.0
 
 [node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="Node2D"]
 
@@ -90,6 +88,9 @@ offset = Vector2( 0, 0 )
 [node name="SpawnerArea" parent="BalloonCamera" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 3.05176e-05, -470 )
+debug = false
+
+[node name="Position2D" type="Position2D" parent="." groups=[ "spawn-box" ]]
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
