@@ -13,18 +13,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 script/script = ExtResource( 1 )
 test_scene = ExtResource( 2 )
-debug = false
-
-[node name="Area" type="Control" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 480.0
-margin/bottom = 160.0
+debug = true
 
 [node name="Spawn" type="Position2D" parent="."]
 
@@ -34,6 +23,18 @@ process_mode = 0
 wait_time = 2.0
 one_shot = false
 autostart = false
+
+[node name="ColorFrame" type="ColorFrame" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = -16.0
+margin/right = 480.0
+margin/bottom = 16.0
+color = Color( 0.51826, 0.177917, 0.828125, 0.508196 )
 
 [connection signal="timeout" from="TimerTest" to="." method="_on_TimerTest_timeout"]
 

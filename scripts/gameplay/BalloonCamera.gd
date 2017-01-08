@@ -12,7 +12,11 @@ func _fixed_process(delta):
 	var balloon = get_balloon_node()
 	if balloon:
 		# TODO: Add Tween
-		set_global_pos(balloon.get_global_pos() - Vector2(test_width/2, test_height/2))
+		set_global_pos(
+			balloon.get_global_pos() - Vector2(
+				OS.get_window_size().width/2, OS.get_window_size().height/2
+			)
+		)
 
 func get_balloon_node():
 	var balloons = get_tree().get_nodes_in_group('balloon')

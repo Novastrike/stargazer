@@ -2,6 +2,7 @@ extends RigidBody2D
 
 signal explode
 signal gotcha
+signal out_of_screen
 
 onready var anime = get_node('AnimationPlayer')
 
@@ -11,9 +12,9 @@ func _ready():
 func _fixed_process(delta):
 	var cameras = get_tree().get_nodes_in_group('camera')
 	if cameras.size() > 0:
-		#print(abs(get_global_pos().y - cameras[0].get_global_pos().y))
-		if abs(cameras[0].get_global_pos().y - get_global_pos().y) >= 640+50:
+		if abs(cameras[0].get_global_pos().y - get_global_pos().y) >= OS.get_window_size().height+50:
 			print('Out of screen')
+			emit_signal('out_of_screen')
 			destruct()
 
 func destruct():

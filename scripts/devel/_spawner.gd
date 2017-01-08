@@ -2,7 +2,7 @@ extends Node2D
 
 export(PackedScene) var star
 
-var testing = true
+export var testing = true
 
 
 func _ready():
