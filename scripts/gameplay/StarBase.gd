@@ -21,3 +21,4 @@ func _on_AnimationPlayer_finished():
 		queue_free()
 	elif anime.get_current_animation() == 'gotcha':
 		emit_signal('gotcha')
+		queue_free()
