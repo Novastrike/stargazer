@@ -7,7 +7,7 @@ onready var spawn_area = get_node("Area")
 
 func _ready():
 	if debug:
-		get_node("Spawn").add_to_group('spawn-box')
+		get_node("Spawn").add_to_group('spawner-box')
 		get_node("TimerTest").start()
 		spawn_at(test_scene.instance(), Vector2(0, 0))
 		spawn_random(test_scene.instance())
@@ -17,8 +17,7 @@ func _draw():
 		draw_rect(spawn_area.get_rect(), Color(0, 0, 0))
 
 func spawn_at(node, pos):
-	# FIXME: Change spawn method
-	var spawn_box = get_tree().get_nodes_in_group('spawn-box')
+	var spawn_box = get_tree().get_nodes_in_group('spawner-box')
 	if spawn_box.size() > 0:
 		var new_spawn = Position2D.new()
 		new_spawn.add_child(node)

@@ -110,7 +110,6 @@ offset = Vector2( 0, 0 )
 [node name="SpawnerArea" parent="BalloonCamera" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 3.05176e-05, -470 )
-debug = false
 
 [node name="YouDied" type="Control" parent="BalloonCamera"]
 
@@ -157,7 +156,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Position2D" type="Position2D" parent="." groups=[ "spawn-box" ]]
+[node name="Position2D" type="Position2D" parent="." groups=[ "spawner-box" ]]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 

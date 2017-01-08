@@ -2,8 +2,6 @@ extends Node2D
 
 export(PackedScene) var star
 
-var test_pos = Vector2(0,0)
-var test_add = true
 var testing = true
 
 
