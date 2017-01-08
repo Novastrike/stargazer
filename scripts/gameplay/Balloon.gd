@@ -2,6 +2,8 @@ extends RigidBody2D
 
 signal explode
 
+export(bool) var debug = false
+
 onready var anime = get_node('AnimationPlayer')
 var speed = 600
 
@@ -33,6 +35,7 @@ func _on_Area2D_body_enter( body ):
 
 func _on_AnimationPlayer_finished():
 	if anime.get_current_animation() == 'explode':
-		emit_signal('explode')
 		# FIXME: Change current camera
-		queue_free()
+		if not debug:
+			emit_signal('explode')
+			queue_free()
