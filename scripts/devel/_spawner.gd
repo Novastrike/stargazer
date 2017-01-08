@@ -11,7 +11,10 @@ func _ready():
 func spawn_star():
 	var spawners = get_tree().get_nodes_in_group('spawner-area')
 	if spawners.size() > 0:
-		spawners[0].spawn_random(star.instance())
+		if Pool.has_objects('stars'):
+			spawners[0].spawn_random(Pool.get_object('stars'))
+		else:
+			spawners[0].spawn_random(star.instance())
 
 func _on_Timer_timeout():
 	if testing:

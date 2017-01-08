@@ -4,9 +4,11 @@ signal explode
 signal gotcha
 signal out_of_screen
 
-onready var anime = get_node('AnimationPlayer')
+var instance_count = 0
+var anime
 
 func _ready():
+	anime = get_node('AnimationPlayer')
 	set_fixed_process(true)
 
 func _fixed_process(delta):
@@ -17,8 +19,14 @@ func _fixed_process(delta):
 			emit_signal('out_of_screen')
 			destruct()
 
+func reset():
+	instance_count += 1
+	print(instance_count)
+	get_node('AnimationPlayer').play("reset")
+
 func destruct():
-	get_parent().queue_free()
+	Pool.push_object(self, 'stars')
+	get_parent().remove_child(self)
 
 func explode():
 	anime.play("explode")

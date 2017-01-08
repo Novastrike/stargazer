@@ -14,10 +14,9 @@ func _ready():
 func spawn_at(node, pos):
 	var spawn_box = get_tree().get_nodes_in_group('spawner-box')
 	if spawn_box.size() > 0:
-		var new_spawn = Position2D.new()
-		new_spawn.add_child(node)
-		spawn_box[0].add_child(new_spawn)
-		new_spawn.set_global_pos(pos)
+		spawn_box[0].add_child(node)
+		node.reset()
+		node.set_global_pos(pos)
 
 func spawn_random(node):
 	randomize()
