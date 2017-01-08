@@ -17,6 +17,7 @@ func _draw():
 		draw_rect(spawn_area.get_rect(), Color(0, 0, 0))
 
 func spawn_at(node, pos):
+	# FIXME: Change spawn method
 	var new_spawn = Position2D.new()
 	new_spawn.set_pos(pos)
 	spawn_box.add_child(new_spawn)

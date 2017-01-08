@@ -5,7 +5,7 @@
 [node name="BalloonCamera" type="Camera2D"]
 
 offset = Vector2( 0, -150 )
-anchor_mode = 1
+anchor_mode = 0
 rotating = false
 current = true
 zoom = Vector2( 1, 1 )

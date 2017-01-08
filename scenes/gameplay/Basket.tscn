@@ -1,82 +1,42 @@
-[gd_scene load_steps=12 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://scripts/gameplay/Basket.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/gameplay/basket.tex" type="Texture" id=2]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=10]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -75.5747, -4.63826, -72.0158, -5.28533, -69.104, 12.1855, -72.6629, 13.1561 )
+extents = Vector2( 10, 10 )
 
-[sub_resource type="ConvexPolygonShape2D" id=2]
-
-custom_solver_bias = 0.0
-points = Vector2Array( -59.7215, 39.0388, -72.6629, 13.1561, -69.104, 12.1855, -56.1626, 37.0976, -49.692, 58.1273 )
-
-[sub_resource type="ConvexPolygonShape2D" id=3]
+[sub_resource type="ConcavePolygonShape2D" id=11]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -52.9273, 62.3333, -59.7215, 39.0388, -49.692, 58.1273 )
-
-[sub_resource type="ConvexPolygonShape2D" id=4]
-
-custom_solver_bias = 0.0
-points = Vector2Array( 57.3978, 62.3333, -52.9273, 62.3333, -49.692, 58.1273, 53.8389, 57.4803 )
-
-[sub_resource type="ConvexPolygonShape2D" id=5]
-
-custom_solver_bias = 0.0
-points = Vector2Array( 62.5744, 31.9211, 57.3978, 62.3333, 53.8389, 57.4803, 58.3684, 29.9799 )
-
-[sub_resource type="ConvexPolygonShape2D" id=6]
-
-custom_solver_bias = 0.0
-points = Vector2Array( 62.5744, 31.9211, 58.3684, 29.9799, 70.3392, 11.2149, 75.1922, 12.1855 )
-
-[sub_resource type="ConvexPolygonShape2D" id=7]
-
-custom_solver_bias = 0.0
-points = Vector2Array( 76.8098, -5.60886, 75.1922, 12.1855, 70.3392, 11.2149, 72.9275, -5.9324 )
+segments = Vector2Array( -76.0309, -5.18159, -74.4575, 13.5247, -74.4575, 13.5247, -60.6463, 39.0492, -60.6463, 39.0492, -52.9273, 62.3333, -52.9273, 62.3333, 57.3978, 62.3333, 57.3978, 62.3333, 64.3537, 32.9303, 64.3537, 32.9303, 75.3677, 14.9233, 75.3677, 14.9233, 77.116, -6.40537, 77.116, -6.40537, 71.6964, -7.62914, 71.6964, -7.62914, 68.1999, 10.9023, 68.1999, 10.9023, 58.3684, 29.9799, 58.3684, 29.9799, 52.8153, 53.5597, 52.8153, 53.5597, -46.3106, 54.7835, -46.3106, 54.7835, -53.3036, 36.6016, -53.3036, 36.6016, -67.4645, 12.6506, -67.4645, 12.6506, -70.2617, -5.70606, -70.2617, -5.70606, -76.0309, -5.18159 )
 
 [sub_resource type="ConvexPolygonShape2D" id=8]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -48.041, 56.5442, -50.4127, 51.5373, -51.9938, 45.4763, 54.9957, 45.4763, 53.9416, 50.7467 )
+points = Vector2Array( -52.0119, 51.5773, -54.1559, 45.5027, 56.1567, 45.6558 )
 
 [sub_resource type="ConvexPolygonShape2D" id=9]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -48.041, 56.5442, 53.9416, 50.7467, 52.8875, 56.0172 )
+points = Vector2Array( 54.0128, 57.805, -49.8169, 58.5197, -52.0119, 51.5773, 56.1567, 45.6558, 55.2379, 51.22 )
 
 [node name="BasketBody" type="RigidBody2D"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-shapes/1/shape = SubResource( 2 )
+shapes/0/shape = SubResource( 10 )
+shapes/0/transform = Matrix32( 7.08701, 0, 0, 3.4332, 0.734336, 28.1281 )
+shapes/0/trigger = true
+shapes/1/shape = SubResource( 11 )
 shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/1/trigger = false
-shapes/2/shape = SubResource( 3 )
-shapes/2/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/2/trigger = false
-shapes/3/shape = SubResource( 4 )
-shapes/3/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/3/trigger = false
-shapes/4/shape = SubResource( 5 )
-shapes/4/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/4/trigger = false
-shapes/5/shape = SubResource( 6 )
-shapes/5/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/5/trigger = false
-shapes/6/shape = SubResource( 7 )
-shapes/6/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/6/trigger = false
 collision/layers = 1
 collision/mask = 1
 mode = 0
 mass = 1.0
-friction = 1.0
+friction = 0.0
 bounce = 0.0
 gravity_scale = 3.0
 custom_integrator = false
@@ -96,11 +56,19 @@ script/script = ExtResource( 1 )
 transform/scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 2 )
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+transform/pos = Vector2( 0.734336, 28.1281 )
+transform/scale = Vector2( 7.08701, 3.4332 )
+shape = SubResource( 10 )
+trigger = true
+_update_shape_index = 0
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
-build_mode = 0
-polygon = Vector2Array( -75.5747, -4.63826, -72.6629, 13.1561, -59.7215, 39.0388, -52.9273, 62.3333, 57.3978, 62.3333, 62.5744, 31.9211, 75.1922, 12.1855, 76.8098, -5.60886, 72.9275, -5.9324, 70.3392, 11.2149, 58.3684, 29.9799, 53.8389, 57.4803, -49.692, 58.1273, -56.1626, 37.0976, -69.104, 12.1855, -72.0158, -5.28533 )
-shape_range = Vector2( 0, 6 )
+build_mode = 1
+polygon = Vector2Array( -76.0309, -5.18159, -74.4575, 13.5247, -60.6463, 39.0492, -52.9273, 62.3333, 57.3978, 62.3333, 64.3537, 32.9303, 75.3677, 14.9233, 77.116, -6.40537, 71.6964, -7.62914, 68.1999, 10.9023, 58.3684, 29.9799, 52.8153, 53.5597, -46.3106, 54.7835, -53.3036, 36.6016, -67.4645, 12.6506, -70.2617, -5.70606 )
+shape_range = Vector2( 1, 1 )
 trigger = false
 
 [node name="GotchaArea" type="Area2D" parent="."]
@@ -120,7 +88,7 @@ angular_damp = 1.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GotchaArea"]
 
 build_mode = 0
-polygon = Vector2Array( -51.9938, 45.4763, -50.4127, 51.5373, -48.041, 56.5442, 52.8875, 56.0172, 53.9416, 50.7467, 54.9957, 45.4763 )
+polygon = Vector2Array( -54.1559, 45.5027, -52.0119, 51.5773, -49.8169, 58.5197, 54.0128, 57.805, 55.2379, 51.22, 56.1567, 45.6558 )
 shape_range = Vector2( 0, 1 )
 trigger = false
 
