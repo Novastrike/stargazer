@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scripts/gameplay/BalloonCamera.gd" type="Script" id=1]
 
-[node name="BalloonCamera" type="Camera2D"]
+[node name="BalloonCamera" type="Camera2D" groups=[ "camera" ]]
 
 offset = Vector2( 0, -150 )
 anchor_mode = 0

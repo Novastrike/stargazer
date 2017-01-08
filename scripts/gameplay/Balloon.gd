@@ -19,8 +19,6 @@ func _fixed_process(delta):
 		movement.x = -1
 	var offset = Vector2(1,0)
 	var impulse = movement * Vector2(speed * delta, 0)
-	print('OFFSET:', offset)
-	print('IMPULSE', impulse)
 	apply_impulse(offset, impulse)
 
 func explode():

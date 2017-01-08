@@ -90,7 +90,7 @@ transform/pos = Vector2( 2, 47.0001 )
 node_a = NodePath("../BalloonBody")
 node_b = NodePath("../RopeBody")
 bias/bias = 0.0
-collision/exclude_nodes = true
+collision/exclude_nodes = false
 softness = 0.0
 
 [node name="PinJoint2D2" type="PinJoint2D" parent="Node2D"]
@@ -99,7 +99,7 @@ transform/pos = Vector2( 2, 152 )
 node_a = NodePath("../RopeBody")
 node_b = NodePath("../BasketBody")
 bias/bias = 0.0
-collision/exclude_nodes = true
+collision/exclude_nodes = false
 softness = 0.0
 
 [node name="BalloonCamera" parent="." instance=ExtResource( 7 )]
@@ -114,6 +114,7 @@ debug = false
 
 [node name="YouDied" type="Control" parent="BalloonCamera"]
 
+editor/display_folded = true
 visibility/opacity = 0.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
