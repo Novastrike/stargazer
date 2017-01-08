@@ -6,7 +6,6 @@
 [node name="SpawnerArea" type="Area2D" groups=[ "spawner-area" ]]
 
 transform/pos = Vector2( -3.8147e-06, -1.14441e-05 )
-transform/scale = Vector2( 1, 1 )
 input/pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -28,8 +27,6 @@ margin/right = 480.0
 margin/bottom = 160.0
 
 [node name="Spawn" type="Position2D" parent="."]
-
-transform/scale = Vector2( 1, 1 )
 
 [node name="TimerTest" type="Timer" parent="."]
 
