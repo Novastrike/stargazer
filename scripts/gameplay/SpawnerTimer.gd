@@ -32,6 +32,7 @@ func spawn_node():
 		else:
 			object_node = new_instance()
 		spawners[0].spawn_random(object_node)
+		object_node.connect('destruct', self, '_on_node_destruct')
 		if debug:
 			print(object_node.get_name())
 
@@ -45,6 +46,12 @@ func pool_instance():
 	obj.set_name(node_name)
 	return obj
 
+func _on_node_destruct(node):
+	if pool_enabled:
+		Pool.push_object(node, 'stars')
+		node.get_parent().remove_child(node)
+	else:
+		node.queue_free()
 
 func _on_SpawnerTimer_timeout():
 	if debug:

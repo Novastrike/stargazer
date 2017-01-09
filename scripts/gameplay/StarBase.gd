@@ -3,6 +3,7 @@ extends RigidBody2D
 signal explode
 signal gotcha
 signal out_of_screen
+signal destruct(node)
 
 var instance_count = 0
 var anime
@@ -25,8 +26,7 @@ func reset():
 	get_node('AnimationPlayer').play("reset")
 
 func destruct():
-	Pool.push_object(self, 'stars')
-	get_parent().remove_child(self)
+	emit_signal('destruct', self)
 
 func explode():
 	anime.play("explode")
