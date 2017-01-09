@@ -1,14 +1,20 @@
 extends Node
 
 var pools = {
-	'stars': []
+	'stars': [] # NOTE: REMOVE BEFORE RELEASE
 }
 
 func _ready():
 	pass
 
+func create_pool(name):
+	if not name in pools:
+		pools[name] = []
+
 func has_objects(pool):
-	return pools[pool].size() > 0
+	if pool in pools:
+		return pools[pool].size() > 0
+	return false
 
 func push_object(object, pool):
 	pools[pool].append(object)

@@ -1,13 +1,14 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=14 format=1]
 
 [ext_resource path="res://scripts/devel/_spawner.gd" type="Script" id=1]
-[ext_resource path="res://scenes/gameplay/StarBase.tscn" type="PackedScene" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
-[ext_resource path="res://scenes/gameplay/Balloon.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/gameplay/Rope.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/gameplay/Basket.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/gameplay/BalloonCamera.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/gameplay/SpawnerArea.tscn" type="PackedScene" id=8]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://scenes/gameplay/Balloon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/gameplay/Rope.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/gameplay/Basket.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/gameplay/BalloonCamera.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/gameplay/SpawnerArea.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/gameplay/SpawnerTimer.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/gameplay/StarBase.tscn" type="PackedScene" id=9]
 
 [sub_resource type="CanvasItemShader" id=1]
 
@@ -37,15 +38,6 @@ tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), 
 [node name="SpawnerTest" type="Node2D"]
 
 script/script = ExtResource( 1 )
-star = ExtResource( 2 )
-testing = true
-
-[node name="Timer" type="Timer" parent="."]
-
-process_mode = 0
-wait_time = 1.0
-one_shot = false
-autostart = true
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -57,22 +49,22 @@ visibility/visible = false
 transform/pos = Vector2( -5.85959, -179.936 )
 transform/scale = Vector2( 10.8735, 18.5883 )
 z/z = -2
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 modulate = Color( 0.925781, 0.10849, 0.10849, 1 )
 
-[node name="BalloonBody" parent="Node2D" instance=ExtResource( 4 )]
+[node name="BalloonBody" parent="Node2D" instance=ExtResource( 3 )]
 
 friction = 0.0
 gravity_scale = -5.0
 debug = true
 
-[node name="RopeBody" parent="Node2D" instance=ExtResource( 5 )]
+[node name="RopeBody" parent="Node2D" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 2.76053, 97.8446 )
 transform/scale = Vector2( 0.5, 0.5 )
 z/z = -1
 
-[node name="BasketBody" parent="Node2D" instance=ExtResource( 6 )]
+[node name="BasketBody" parent="Node2D" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 2.20062, 216.566 )
 z/z = 1
@@ -108,12 +100,13 @@ bias/bias = 0.0
 collision/exclude_nodes = false
 softness = 0.0
 
-[node name="BalloonCamera" parent="." instance=ExtResource( 7 )]
+[node name="BalloonCamera" parent="." instance=ExtResource( 6 )]
 
+editor/display_folded = true
 z/z = 1
 offset = Vector2( 0, 0 )
 
-[node name="SpawnerArea" parent="BalloonCamera" instance=ExtResource( 8 )]
+[node name="SpawnerArea" parent="BalloonCamera" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 3.05176e-05, -470 )
 
@@ -203,7 +196,12 @@ playback/speed = 0.5
 blend_times = [  ]
 autoplay = ""
 
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[node name="SpawnerTimer" parent="." instance=ExtResource( 8 )]
+
+object_scene = ExtResource( 9 )
+spawner_area = "spawner-area"
+pool_name = "stars"
+pool_enabled = true
 
 [connection signal="explode" from="Node2D/BalloonBody" to="." method="_on_BalloonBody_explode"]
 
