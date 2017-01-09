@@ -19,11 +19,11 @@ shader/shader = SubResource( 1 )
 shader/shading_mode = 0
 shader_param/base = Color( 0.722656, 0.683136, 0.683136, 1 )
 
-[sub_resource type="GDScript" id=4]
+[sub_resource type="GDScript" id=3]
 
 script/source = "extends Label\n\n\nfunc _ready():\n\tset_process(true)\n\nfunc _process(delta):\n\tset_text(str(Pool.pools[\'stars\']))\n\n"
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 
 length = 1.0
 loop = false
@@ -188,7 +188,7 @@ autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script/script = SubResource( 4 )
+script/script = SubResource( 3 )
 
 [node name="Position2D" type="Position2D" parent="." groups=[ "spawner-box" ]]
 
@@ -197,7 +197,7 @@ script/script = SubResource( 4 )
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/died = SubResource( 3 )
+anims/died = SubResource( 4 )
 playback/active = true
 playback/speed = 0.5
 blend_times = [  ]
