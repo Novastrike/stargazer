@@ -23,7 +23,11 @@ func spawn_random(node):
 	spawn_at(node, Vector2(x_random(), y_random()))
 
 func x_random():
-	return int(rand_range(get_global_pos().x, get_global_pos().x+OS.get_window_size().width+1))
+	var cameras = get_tree().get_nodes_in_group('camera')
+	if cameras.size() > 0:
+		var global_x = get_global_pos().x
+		var viewport_size = get_viewport().get_rect().size
+		return int(rand_range(global_x, global_x + viewport_size.width * cameras[0].get_zoom().x + 1))
 
 func y_random():
 	return int(rand_range(get_global_pos().y, get_global_pos().y+1))
