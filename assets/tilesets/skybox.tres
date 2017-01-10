@@ -1,0 +1,15 @@
+[gd_resource type="TileSet" load_steps=2 format=1]
+
+[ext_resource path="res://assets/textures/gameplay/src/cloud-bg1.png" type="Texture" id=1]
+
+[resource]
+
+0/name = "Sky1"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/region = Rect2( 0, 0, 1024, 1024 )
+0/occluder_offset = Vector2( 512, 512 )
+0/navigation_offset = Vector2( 512, 512 )
+0/shape_offset = Vector2( 0, 0 )
+0/shapes = [  ]
+
