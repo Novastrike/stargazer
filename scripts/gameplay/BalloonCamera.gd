@@ -3,6 +3,8 @@ extends Camera2D
 export var debug = false
 
 onready var tween = get_node("Tween")
+onready var INITIAL_V_OFFSET = get_offset().y
+const INITIAL_Y = 640
 
 func _ready():
 	if debug:
@@ -12,6 +14,10 @@ func _ready():
 
 func _fixed_process(delta):
 	fix_camera()
+	fix_y_offset()
+
+func fix_y_offset():
+	set_offset(Vector2(0, (INITIAL_V_OFFSET * OS.get_window_size().height)/INITIAL_Y * 1.2))
 
 func fix_camera():
 	var balloon = get_balloon_node()
