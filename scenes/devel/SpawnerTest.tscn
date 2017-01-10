@@ -91,6 +91,7 @@ softness = 0.0
 
 z/z = 1
 debug = false
+smooth = true
 
 [node name="SpawnerArea" parent="BalloonCamera" instance=ExtResource( 7 )]
 

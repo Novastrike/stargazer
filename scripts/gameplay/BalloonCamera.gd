@@ -1,6 +1,7 @@
 extends Camera2D
 
-export var debug = false
+export(bool) var debug = false
+export(bool) var smooth = true
 
 onready var tween = get_node("Tween")
 onready var INITIAL_V_OFFSET = get_offset().y
@@ -24,8 +25,11 @@ func fix_camera():
 	if balloon:
 		var viewport_size = get_viewport().get_rect().size
 		var end = balloon.get_global_pos() - Vector2(viewport_size.width/2 * get_zoom().x, viewport_size.height/2 * get_zoom().y)
-		tween.interpolate_method(self, 'set_global_pos', get_global_pos(), end, .2, Tween.TRANS_LINEAR, Tween.EASE_IN)
-		tween.start()
+		if smooth:
+			tween.interpolate_method(self, 'set_global_pos', get_global_pos(), end, .2, Tween.TRANS_LINEAR, Tween.EASE_IN)
+			tween.start()
+		else:
+			set_global_pos(end)
 
 func get_balloon_node():
 	var balloons = get_tree().get_nodes_in_group('balloon')
