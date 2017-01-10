@@ -69,19 +69,6 @@ z/z = -1
 transform/pos = Vector2( 2.20062, 216.566 )
 z/z = 1
 
-[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="Node2D"]
-
-transform/pos = Vector2( 0.902466, 44.3673 )
-transform/scale = Vector2( 1, 2.28126 )
-node_a = NodePath("../BalloonBody")
-node_b = NodePath("../BasketBody")
-bias/bias = 0.0
-collision/exclude_nodes = true
-length = 50.0
-rest_length = 0.0
-stiffness = 20.0
-damping = 1.0
-
 [node name="PinJoint2D" type="PinJoint2D" parent="Node2D"]
 
 transform/pos = Vector2( 2, 47.0001 )
@@ -201,6 +188,7 @@ wait_time = 2.0
 object_scene = ExtResource( 9 )
 spawner_area = "spawner-area"
 pool_name = "stars"
+pool_enabled = true
 
 [connection signal="explode" from="Node2D/BalloonBody" to="." method="_on_BalloonBody_explode"]
 

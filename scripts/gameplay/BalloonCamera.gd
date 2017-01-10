@@ -14,9 +14,9 @@ func _ready():
 
 func _fixed_process(delta):
 	fix_camera()
-	fix_y_offset()
+	fix_v_offset()
 
-func fix_y_offset():
+func fix_v_offset():
 	set_offset(Vector2(0, (INITIAL_V_OFFSET * OS.get_window_size().height)/INITIAL_Y * 1.2))
 
 func fix_camera():

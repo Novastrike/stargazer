@@ -49,6 +49,7 @@ func pool_instance():
 func _on_node_destruct(node):
 	if pool_enabled:
 		Pool.push_object(node, 'stars')
+		node.disconnect('destruct', self, '_on_node_destruct')
 		node.get_parent().remove_child(node)
 	else:
 		node.queue_free()
