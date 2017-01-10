@@ -4,7 +4,7 @@
 
 [node name="BalloonCamera" type="Camera2D" groups=[ "camera" ]]
 
-offset = Vector2( 0, -150 )
+offset = Vector2( 0, -100 )
 anchor_mode = 0
 rotating = false
 current = true
@@ -23,5 +23,13 @@ drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 script/script = ExtResource( 1 )
+debug = true
+
+[node name="Tween" type="Tween" parent="."]
+
+playback/process_mode = 0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
 
 

@@ -55,7 +55,7 @@ transform/pos = Vector2( 241.765, 343.73 )
 [node name="BalloonBody" parent="Node2D" instance=ExtResource( 3 )]
 
 friction = 0.0
-gravity_scale = -5.0
+gravity_scale = -7.0
 debug = true
 
 [node name="RopeBody" parent="Node2D" instance=ExtResource( 4 )]
@@ -103,7 +103,7 @@ softness = 0.0
 [node name="BalloonCamera" parent="." instance=ExtResource( 6 )]
 
 z/z = 1
-offset = Vector2( 0, 0 )
+debug = false
 
 [node name="SpawnerArea" parent="BalloonCamera" instance=ExtResource( 7 )]
 
@@ -197,6 +197,7 @@ autoplay = ""
 
 [node name="SpawnerTimer" parent="." instance=ExtResource( 8 )]
 
+wait_time = 2.0
 object_scene = ExtResource( 9 )
 spawner_area = "spawner-area"
 pool_name = "stars"

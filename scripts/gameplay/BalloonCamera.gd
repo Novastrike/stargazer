@@ -1,22 +1,24 @@
 extends Camera2D
 
-var test_width = 480
-var test_height = 640
+export var debug = false
 
+onready var tween = get_node("Tween")
 
 func _ready():
-	#set_offset(Vector2(test_width/2, test_height/2))
-	set_fixed_process(true)
+	if debug:
+		fix_camera()
+	else:
+		set_fixed_process(true)
 
 func _fixed_process(delta):
+	fix_camera()
+
+func fix_camera():
 	var balloon = get_balloon_node()
 	if balloon:
-		# TODO: Add Tween
-		set_global_pos(
-			balloon.get_global_pos() - Vector2(
-				OS.get_window_size().width/2, OS.get_window_size().height/2
-			)
-		)
+		var end = balloon.get_global_pos() - Vector2(OS.get_window_size().width/2, OS.get_window_size().height/2)
+		tween.interpolate_method(self, 'set_global_pos', get_global_pos(), end, .2, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		tween.start()
 
 func get_balloon_node():
 	var balloons = get_tree().get_nodes_in_group('balloon')
