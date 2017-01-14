@@ -72,7 +72,7 @@ playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TiledSky" type="TileMap" parent="."]
 
 mode = 0
 tile_set = ExtResource( 2 )
@@ -90,16 +90,31 @@ collision/mask = 1
 occluder/light_mask = 1
 tile_data = IntArray(  )
 script/script = ExtResource( 3 )
+target_group = "balloon"
+offset = 2
 
 [node name="SpawnerTest" parent="." instance=ExtResource( 4 )]
 
 [node name="BalloonBody" parent="SpawnerTest/Node2D"]
 
+z/z = 1
 gravity_scale = -6.0
+
+[node name="RopeBody" parent="SpawnerTest/Node2D"]
+
+z/z = 0
 
 [node name="BalloonCamera" parent="SpawnerTest"]
 
-smooth = true
+zoom = Vector2( 2, 2 )
+
+[node name="SpawnerArea" parent="SpawnerTest/BalloonCamera"]
+
+transform/pos = Vector2( 3.05176e-05, -527 )
+
+[node name="SpawnerTimer" parent="SpawnerTest"]
+
+pool_enabled = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
