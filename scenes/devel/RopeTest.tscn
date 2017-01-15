@@ -9,4 +9,6 @@
 
 [node name="BalloonCamera" parent="." instance=ExtResource( 2 )]
 
+target_group = "balloon-player"
+
 
