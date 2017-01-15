@@ -14,7 +14,7 @@ func _ready():
 	set_fixed_process(true)
 
 func _set_sprite_modulate(color):
-	if get_node("Balloon") != null:
+	if has_node("Balloon"):
 		modulate = color
 		get_node("Balloon").set_modulate(modulate)
 
