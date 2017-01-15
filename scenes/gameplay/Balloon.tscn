@@ -20,7 +20,7 @@ length = 0.1
 loop = false
 step = 0.1
 
-[node name="BalloonBody" type="RigidBody2D" groups=[ "balloon" ]]
+[node name="BalloonBase" type="RigidBody2D" groups=[ "balloon" ]]
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
@@ -44,6 +44,7 @@ velocity/angular = 0.0
 damp_override/linear = -1.0
 damp_override/angular = -1.0
 script/script = ExtResource( 1 )
+modulate = Color( 1, 1, 1, 1 )
 debug = false
 
 [node name="Balloon" type="Sprite" parent="."]
@@ -53,6 +54,7 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
+visibility/visible = false
 transform/pos = Vector2( 0.054693, -15.1682 )
 transform/scale = Vector2( 3.98628, 5.12687 )
 shape = SubResource( 1 )
@@ -72,6 +74,7 @@ angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 
+visibility/visible = false
 transform/pos = Vector2( -0.723264, -14.7939 )
 transform/scale = Vector2( 4.6287, 5.80314 )
 shape = SubResource( 2 )

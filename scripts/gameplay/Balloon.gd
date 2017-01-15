@@ -1,7 +1,9 @@
+tool
 extends RigidBody2D
 
 signal explode
 
+export(Color) var modulate = Color(1, 1, 1) setget _set_sprite_modulate
 export(bool) var debug = false
 
 onready var anime = get_node('AnimationPlayer')
@@ -10,6 +12,12 @@ var speed = 600
 
 func _ready():
 	set_fixed_process(true)
+
+func _set_sprite_modulate(color):
+	if get_node("Balloon") != null:
+		modulate = color
+		get_node("Balloon").set_modulate(modulate)
+
 
 func _fixed_process(delta):
 	var movement = Vector2()
