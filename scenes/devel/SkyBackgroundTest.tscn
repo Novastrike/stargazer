@@ -75,18 +75,9 @@ autoplay = ""
 
 [node name="SpawnerTest" parent="." instance=ExtResource( 3 )]
 
-[node name="BalloonBody" parent="SpawnerTest/Node2D"]
-
-z/z = 1
-gravity_scale = -6.0
-
-[node name="RopeBody" parent="SpawnerTest/Node2D"]
-
-z/z = 0
-
 [node name="BalloonCamera" parent="SpawnerTest"]
 
-zoom = Vector2( 4, 4 )
+zoom = Vector2( 2, 2 )
 
 [node name="SpawnerArea" parent="SpawnerTest/BalloonCamera"]
 

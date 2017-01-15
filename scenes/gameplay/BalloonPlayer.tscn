@@ -61,5 +61,6 @@ softness = 0.0
 [node name="BasketBody" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 0, 271 )
+z/z = 1
 
 

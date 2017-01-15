@@ -58,7 +58,7 @@ tracks/2/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "updat
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 3.15354, 0, 0, 3.17099, 0, 0 )
+shapes/0/transform = Matrix32( 4.48956, 0, 0, 2.70603, 3.22571, 4.58145 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -81,12 +81,13 @@ script/script = ExtResource( 1 )
 
 [node name="Star" type="Sprite" parent="."]
 
-transform/scale = Vector2( 0.1, 0.1 )
+transform/scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-transform/scale = Vector2( 3.15354, 3.17099 )
+transform/pos = Vector2( 3.22571, 4.58145 )
+transform/scale = Vector2( 4.48956, 2.70603 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
