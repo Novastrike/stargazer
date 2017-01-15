@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=1]
 
 [ext_resource path="res://assets/tilesets/skybox.tres" type="TileSet" id=1]
-[ext_resource path="res://scripts/core/SkyTileMap.gd" type="Script" id=2]
+[ext_resource path="res://scripts/core/TiledSky.gd" type="Script" id=2]
 
 [node name="TiledSky" type="TileMap"]
 

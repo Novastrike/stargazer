@@ -24,7 +24,7 @@ func fill_tiles():
 		var centery = center.y
 		# TODO: Improve clear method
 		clear()
-		for x in range(centerx-offset, centerx+offset):
-			for y in range(centery-offset, centery+offset):
+		for x in range(centerx-offset, centerx+offset+1):
+			for y in range(centery-offset, centery+offset+1):
 				print('ADD TILE TO: ', x, ', ', y)
 				set_cell(x, y, current_tile)
