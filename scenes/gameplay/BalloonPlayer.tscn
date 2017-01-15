@@ -8,18 +8,25 @@
 
 [node name="BalloonBody" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 35, 15 )
-transform/rot = -45.0
+transform/pos = Vector2( 51.7646, 46.1343 )
+transform/rot = -88.4341
 z/z = 1
 
 [node name="BalloonBody2" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( -35.4142, 16.4142 )
-transform/rot = 45.0
+transform/pos = Vector2( -49.7839, 51.1409 )
+transform/rot = 93.3458
 z/z = 1
 modulate = Color( 0, 0, 0, 1 )
 
-[node name="Balloon+Rope1" type="PinJoint2D" parent="."]
+[node name="BalloonBody3" parent="." instance=ExtResource( 1 )]
+
+z/z = 1
+collision/layers = 2
+collision/mask = 2
+modulate = Color( 0.265625, 1, 0, 1 )
+
+[node name="Balloon1+Rope1" type="PinJoint2D" parent="."]
 
 transform/pos = Vector2( 0, 50 )
 node_a = NodePath("../BalloonBody")
@@ -32,6 +39,15 @@ softness = 0.0
 
 transform/pos = Vector2( 0, 50 )
 node_a = NodePath("../BalloonBody2")
+node_b = NodePath("../RopeSegment1")
+bias/bias = 0.0
+collision/exclude_nodes = true
+softness = 0.0
+
+[node name="Balloon3+Rope1" type="PinJoint2D" parent="."]
+
+transform/pos = Vector2( 0, 50 )
+node_a = NodePath("../BalloonBody3")
 node_b = NodePath("../RopeSegment1")
 bias/bias = 0.0
 collision/exclude_nodes = true

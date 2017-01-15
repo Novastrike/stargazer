@@ -31,8 +31,8 @@ collision/mask = 1
 mode = 0
 mass = 1.0
 friction = 1.0
-bounce = 0.0
-gravity_scale = -10.0
+bounce = 1.0
+gravity_scale = -6.0
 custom_integrator = false
 continuous_cd = 0
 contacts_reported = 0
@@ -73,6 +73,7 @@ angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 
+visibility/visible = false
 transform/pos = Vector2( -0.723264, -14.7939 )
 transform/scale = Vector2( 4.6287, 5.80314 )
 shape = SubResource( 2 )
