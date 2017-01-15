@@ -21,11 +21,11 @@ softness = 0.0
 
 [node name="RopeSegment1" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 0, 97 )
+transform/pos = Vector2( 0, 76 )
 
 [node name="Rope1+Rope2" type="PinJoint2D" parent="."]
 
-transform/pos = Vector2( 0, 148 )
+transform/pos = Vector2( 0, 102 )
 node_a = NodePath("../RopeSegment1")
 node_b = NodePath("../RopeSegment2")
 bias/bias = 0.0
@@ -34,12 +34,25 @@ softness = 0.0
 
 [node name="RopeSegment2" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 0, 197 )
+transform/pos = Vector2( 0, 127 )
 
-[node name="Rope2+Basket" type="PinJoint2D" parent="."]
+[node name="Rope2+Rope3" type="PinJoint2D" parent="."]
 
-transform/pos = Vector2( 0, 245 )
+transform/pos = Vector2( 0, 153 )
 node_a = NodePath("../RopeSegment2")
+node_b = NodePath("../RopeSegment3")
+bias/bias = 0.0
+collision/exclude_nodes = true
+softness = 0.0
+
+[node name="RopeSegment3" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 0, 178 )
+
+[node name="Rope3+Basket" type="PinJoint2D" parent="."]
+
+transform/pos = Vector2( 0, 202 )
+node_a = NodePath("../RopeSegment3")
 node_b = NodePath("../BasketBody")
 bias/bias = 0.0
 collision/exclude_nodes = true
@@ -47,6 +60,6 @@ softness = 0.0
 
 [node name="BasketBody" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 0, 311 )
+transform/pos = Vector2( 0, 271 )
 
 
