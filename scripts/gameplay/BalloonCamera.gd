@@ -1,7 +1,8 @@
 extends Camera2D
 
-export(bool) var debug = false
+export(String) var target_group = 'balloon-player'
 export(bool) var smooth = true
+export(bool) var debug = false
 
 onready var tween = get_node("Tween")
 onready var INITIAL_V_OFFSET = get_offset().y
@@ -32,7 +33,7 @@ func fix_camera():
 			set_global_pos(end)
 
 func get_balloon_node():
-	var balloons = get_tree().get_nodes_in_group('balloon')
+	var balloons = get_tree().get_nodes_in_group(target_group)
 	if balloons.size() > 0:
 		return balloons[0]
 	return null

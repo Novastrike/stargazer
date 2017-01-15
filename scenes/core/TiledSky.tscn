@@ -21,7 +21,7 @@ collision/mask = 1
 occluder/light_mask = 1
 tile_data = IntArray(  )
 script/script = ExtResource( 2 )
-target_group = "balloon"
+target_group = "balloon-player"
 offset = 2
 
 

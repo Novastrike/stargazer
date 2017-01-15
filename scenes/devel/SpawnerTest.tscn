@@ -51,6 +51,7 @@ modulate = Color( 0.925781, 0.10849, 0.10849, 1 )
 [node name="BalloonCamera" parent="." instance=ExtResource( 4 )]
 
 z/z = 1
+target_group = "balloon-player"
 debug = false
 
 [node name="SpawnerArea" parent="BalloonCamera" instance=ExtResource( 5 )]

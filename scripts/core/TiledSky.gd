@@ -1,6 +1,6 @@
 extends TileMap
 
-export(String) var target_group = 'balloon'
+export(String) var target_group = 'balloon-player'
 export(int) var offset = 2
 var current_tile = 0
 var last_center
