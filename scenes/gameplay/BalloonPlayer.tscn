@@ -8,12 +8,30 @@
 
 [node name="BalloonBody" parent="." instance=ExtResource( 1 )]
 
+transform/pos = Vector2( 35, 15 )
+transform/rot = -45.0
 z/z = 1
+
+[node name="BalloonBody2" parent="." instance=ExtResource( 1 )]
+
+transform/pos = Vector2( -35.4142, 16.4142 )
+transform/rot = 45.0
+z/z = 1
+modulate = Color( 0, 0, 0, 1 )
 
 [node name="Balloon+Rope1" type="PinJoint2D" parent="."]
 
 transform/pos = Vector2( 0, 50 )
 node_a = NodePath("../BalloonBody")
+node_b = NodePath("../RopeSegment1")
+bias/bias = 0.0
+collision/exclude_nodes = true
+softness = 0.0
+
+[node name="Balloon2+Rope1" type="PinJoint2D" parent="."]
+
+transform/pos = Vector2( 0, 50 )
+node_a = NodePath("../BalloonBody2")
 node_b = NodePath("../RopeSegment1")
 bias/bias = 0.0
 collision/exclude_nodes = true
@@ -61,5 +79,6 @@ softness = 0.0
 [node name="BasketBody" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 0, 271 )
+z/z = 1
 
 

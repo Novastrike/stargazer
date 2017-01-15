@@ -75,30 +75,8 @@ autoplay = ""
 
 [node name="SpawnerTest" parent="." instance=ExtResource( 3 )]
 
-[node name="BalloonBody" parent="SpawnerTest/Node2D"]
-
-z/z = 1
-gravity_scale = -6.0
-
-[node name="RopeBody" parent="SpawnerTest/Node2D"]
-
-z/z = 0
-
-[node name="BalloonCamera" parent="SpawnerTest"]
-
-zoom = Vector2( 4, 4 )
-
-[node name="SpawnerArea" parent="SpawnerTest/BalloonCamera"]
-
-transform/pos = Vector2( 3.05176e-05, -527 )
-
-[node name="SpawnerTimer" parent="SpawnerTest"]
-
-pool_enabled = false
-
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
 color = Color( 1, 1, 1, 1 )
 
 
-[editable path="SpawnerTest"]

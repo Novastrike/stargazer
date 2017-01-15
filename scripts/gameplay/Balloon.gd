@@ -1,3 +1,5 @@
+# TODO: Remove movement code
+
 tool
 extends RigidBody2D
 
