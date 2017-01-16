@@ -5,6 +5,9 @@ signal gotcha
 signal out_of_screen
 signal destruct(node)
 
+export(int, 'Common', 'Special') var type = 0
+export(int) var points = 1
+
 var instance_count = 0
 var anime
 
@@ -22,16 +25,18 @@ func _fixed_process(delta):
 
 func reset():
 	instance_count += 1
-	print(instance_count)
+	#print(instance_count)
 	get_node('AnimationPlayer').play("reset")
 
 func destruct():
 	emit_signal('destruct', self)
 
 func explode():
+	Score.combo_break()
 	anime.play("explode")
 
 func gotcha():
+	Score.push_star(type, points)
 	anime.play("gotcha")
 
 

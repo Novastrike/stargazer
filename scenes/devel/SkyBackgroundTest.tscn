@@ -75,8 +75,22 @@ autoplay = ""
 
 [node name="SpawnerTest" parent="." instance=ExtResource( 3 )]
 
+[node name="BalloonBody" parent="SpawnerTest/BalloonPlayer"]
+
+debug_explode = false
+
+[node name="BalloonBody2" parent="SpawnerTest/BalloonPlayer"]
+
+debug_explode = false
+
+[node name="BalloonBody3" parent="SpawnerTest/BalloonPlayer"]
+
+debug_explode = false
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
 color = Color( 1, 1, 1, 1 )
 
 
+[editable path="SpawnerTest"]
+[editable path="SpawnerTest/BalloonPlayer"]
