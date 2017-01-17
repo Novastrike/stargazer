@@ -3,22 +3,22 @@
 [ext_resource path="res://scripts/gameplay/Basket.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/gameplay/basket.tex" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="ConcavePolygonShape2D" id=11]
+[sub_resource type="ConcavePolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
 segments = Vector2Array( -76.0309, -5.18159, -74.4575, 13.5247, -74.4575, 13.5247, -60.6463, 39.0492, -60.6463, 39.0492, -52.9273, 62.3333, -52.9273, 62.3333, 57.3978, 62.3333, 57.3978, 62.3333, 64.3537, 32.9303, 64.3537, 32.9303, 75.3677, 14.9233, 75.3677, 14.9233, 77.116, -6.40537, 77.116, -6.40537, 71.6964, -7.62914, 71.6964, -7.62914, 68.1999, 10.9023, 68.1999, 10.9023, 58.3684, 29.9799, 58.3684, 29.9799, 52.8153, 53.5597, 52.8153, 53.5597, -46.3106, 54.7835, -46.3106, 54.7835, -53.3036, 36.6016, -53.3036, 36.6016, -67.4645, 12.6506, -67.4645, 12.6506, -70.2617, -5.70606, -70.2617, -5.70606, -76.0309, -5.18159 )
 
-[sub_resource type="ConvexPolygonShape2D" id=8]
+[sub_resource type="ConvexPolygonShape2D" id=3]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -52.0119, 51.5773, -54.1559, 45.5027, 56.1567, 45.6558 )
 
-[sub_resource type="ConvexPolygonShape2D" id=9]
+[sub_resource type="ConvexPolygonShape2D" id=4]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 54.0128, 57.805, -49.8169, 58.5197, -52.0119, 51.5773, 56.1567, 45.6558, 55.2379, 51.22 )
@@ -26,10 +26,10 @@ points = Vector2Array( 54.0128, 57.805, -49.8169, 58.5197, -52.0119, 51.5773, 56
 [node name="BasketBody" type="RigidBody2D"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 10 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 7.08701, 0, 0, 3.4332, 0.734336, 28.1281 )
 shapes/0/trigger = true
-shapes/1/shape = SubResource( 11 )
+shapes/1/shape = SubResource( 2 )
 shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/1/trigger = false
 collision/layers = 1
@@ -60,7 +60,7 @@ texture = ExtResource( 2 )
 
 transform/pos = Vector2( 0.734336, 28.1281 )
 transform/scale = Vector2( 7.08701, 3.4332 )
-shape = SubResource( 10 )
+shape = SubResource( 1 )
 trigger = true
 _update_shape_index = 0
 
@@ -74,10 +74,10 @@ trigger = false
 [node name="GotchaArea" type="Area2D" parent="."]
 
 input/pickable = true
-shapes/0/shape = SubResource( 8 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
-shapes/1/shape = SubResource( 9 )
+shapes/1/shape = SubResource( 4 )
 shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/1/trigger = false
 gravity_vec = Vector2( 0, 1 )

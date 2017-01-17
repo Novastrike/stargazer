@@ -24,6 +24,11 @@ SOFTWARE.
 
 extends TileMap
 
+"""
+TiledSky is aa infinite background system to dynamic generate the background.
+This system uses the TileMap node to test the TileMap performance.
+"""
+
 export(String) var target_group = 'balloon-player'
 export(int) var offset = 2
 var current_tile = 0
@@ -37,6 +42,8 @@ func _fixed_process(delta):
 	fill_tiles()
 
 func fill_tiles():
+	"""Clear and generate the sky tiles."""
+	
 	var balloons = get_tree().get_nodes_in_group(target_group)
 	if balloons.size() > 0:
 		var center = world_to_map(balloons[0].get_global_pos())
