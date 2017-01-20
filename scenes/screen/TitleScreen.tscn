@@ -1,0 +1,90 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://assets/textures/menus/title.tex" type="Texture" id=1]
+
+[node name="TitleScreen" type="Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 480.0
+margin/bottom = 640.0
+
+[node name="Background" type="TextureFrame" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 480.0
+margin/bottom = 640.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 0
+
+[node name="Title" type="TextureFrame" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 480.0
+margin/bottom = 640.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+
+rect/scale = Vector2( 3, 3 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 1
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 384.0
+margin/right = 160.0
+margin/bottom = 469.0
+custom_constants/separation = 7
+alignment = 0
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 160.0
+margin/bottom = 20.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Start"
+flat = true
+
+[node name="Highscore" type="Button" parent="VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 27.0
+margin/right = 160.0
+margin/bottom = 47.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Highscores"
+flat = true
+
+
