@@ -90,7 +90,8 @@ debug_explode = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
-color = Color( 1, 1, 1, 1 )
+visibility/visible = false
+color = Color( 0.256248, 0.224304, 0.410156, 1 )
 
 
 [editable path="SpawnerTest"]

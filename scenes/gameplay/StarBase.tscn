@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://scripts/gameplay/StarBase.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/gameplay/star.tex" type="Texture" id=2]
+[ext_resource path="res://assets/textures/gameplay/light.tex" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -81,18 +82,6 @@ script/script = ExtResource( 1 )
 type = 0
 points = 1
 
-[node name="Star" type="Sprite" parent="."]
-
-transform/scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-
-transform/scale = Vector2( 3.15354, 3.17099 )
-shape = SubResource( 1 )
-trigger = false
-_update_shape_index = 0
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 playback/process_mode = 1
@@ -105,6 +94,63 @@ playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
+
+[node name="Particles2D" type="Particles2D" parent="."]
+
+config/amount = 70
+config/lifetime = 2.0
+config/local_space = false
+params/direction = 180.0
+params/spread = 50.0
+params/linear_velocity = 20.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 9.8
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 2.0
+params/final_size = 2.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+color/color = Color( 0, 0, 0, 1 )
+
+[node name="Star" type="Sprite" parent="."]
+
+transform/scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+transform/scale = Vector2( 3.15354, 3.17099 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Light2D" type="Light2D" parent="."]
+
+enabled = true
+editor_only = false
+texture = ExtResource( 3 )
+offset = Vector2( 0, 0 )
+scale = 0.5
+color = Color( 1, 1, 1, 1 )
+energy = 1.0
+mode = 0
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
 
 [connection signal="finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_finished"]
 
