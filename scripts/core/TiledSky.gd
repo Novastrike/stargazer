@@ -25,7 +25,7 @@ SOFTWARE.
 extends TileMap
 
 """
-TiledSky is aa infinite background system to dynamic generate the background.
+TiledSky is an infinite background system to dynamic generate the background.
 This system uses the TileMap node to test the TileMap performance.
 """
 
@@ -35,27 +35,55 @@ var current_tile = 0
 var last_center
 
 func _ready():
-	fill_tiles()
+	fill_current_tiles()
 	set_fixed_process(true)
 
 func _fixed_process(delta):
-	fill_tiles()
+	fill_current_tiles()
 
-func fill_tiles():
+func get_current_tiles():
+	var current_tiles = {}
+	for tile in get_used_cells():
+		current_tiles[tile] = get_cellv(tile)
+	return current_tiles
+
+
+func fill_current_tiles():
 	"""Clear and generate the sky tiles."""
-	
 	var balloons = get_tree().get_nodes_in_group(target_group)
 	if balloons.size() > 0:
 		var center = world_to_map(balloons[0].get_global_pos())
 		if last_center == center:
 			return
 		
+		var current_tiles = get_current_tiles()
 		last_center = center
-		var centerx = center.x
-		var centery = center.y
-		# TODO: Improve clear method
+		
 		clear()
-		for x in range(centerx-offset, centerx+offset+1):
-			for y in range(centery-offset, centery+offset+1):
-				#print('ADD TILE TO: ', x, ', ', y)
+		for x in range(center.x-offset, center.x+offset+1):
+			for y in range(center.y-offset, center.y+offset+1):
+				if Vector2(x, y) in current_tiles:
+					set_cell(x, y, current_tiles[Vector2(x, y)])
+					continue
 				set_cell(x, y, current_tile)
+
+
+func fill_random_tiles():
+	"""Clear and generate the sky tiles."""
+	var balloons = get_tree().get_nodes_in_group(target_group)
+	if balloons.size() > 0:
+		var center = world_to_map(balloons[0].get_global_pos())
+		if last_center == center:
+			return
+		
+		var current_tiles = get_current_tiles()
+		last_center = center
+		
+		clear()
+		for x in range(center.x-offset, center.x+offset+1):
+			for y in range(center.y-offset, center.y+offset+1):
+				if Vector2(x, y) in current_tiles:
+					set_cell(x, y, current_tiles[Vector2(x, y)])
+					continue
+				randomize()
+				set_cell(x, y, rand_range(0, get_tileset().get_tiles_ids().size()))
