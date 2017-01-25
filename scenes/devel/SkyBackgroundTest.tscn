@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=1]
 
-[ext_resource path="res://scenes/core/TiledSky.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/textures/gameplay/src/cloud-bg1.png" type="Texture" id=2]
+[ext_resource path="res://assets/textures/gameplay/src/cloud-bg1.png" type="Texture" id=1]
+[ext_resource path="res://scenes/core/TiledSky.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/devel/SpawnerTest.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=1]
@@ -22,11 +22,6 @@ tracks/1/imported = false
 tracks/1/keys = { "times":FloatArray( 0, 4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Color( 1, 1, 1, 1 ), Color( 0.578125, 0.248413, 0.248413, 1 ) ] }
 
 [node name="Node2D" type="Node2D"]
-
-[node name="TiledSky2" parent="." instance=ExtResource( 1 )]
-
-visibility/visible = false
-tile_data = IntArray( -1, 0, -65536, 0, 65535, 0, 0, 0 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -50,13 +45,23 @@ motion/mirroring = Vector2( 0, 0 )
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 
 visibility/visible = false
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 region_rect = Rect2( 0, 0, 1536, 1280 )
 
 [node name="CanvasModulate2" type="CanvasModulate" parent="ParallaxBackground/ParallaxLayer"]
 
-color = Color( 1, 1, 1, 1 )
+color = Color( 0.636719, 0.268616, 0.268616, 1 )
+
+[node name="TiledSky2" parent="ParallaxBackground/ParallaxLayer" instance=ExtResource( 2 )]
+
+tile_data = IntArray( -1, 0, -65536, 0, 65535, 0, 0, 0 )
+offset = 10
+
+[node name="TiledSky3" parent="." instance=ExtResource( 2 )]
+
+tile_data = IntArray( -1, 0, -65536, 0, 65535, 0, 0, 0 )
+offset = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
@@ -70,8 +75,6 @@ blend_times = [  ]
 autoplay = ""
 
 [node name="SpawnerTest" parent="." instance=ExtResource( 3 )]
-
-editor/display_folded = true
 
 [node name="BalloonBody" parent="SpawnerTest/BalloonPlayer"]
 

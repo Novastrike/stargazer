@@ -33,7 +33,7 @@ damp_override/angular = -1.0
 
 [node name="Sprite" type="Sprite" parent="."]
 
-transform/scale = Vector2( 0.0643026, 0.050182 )
+transform/scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
