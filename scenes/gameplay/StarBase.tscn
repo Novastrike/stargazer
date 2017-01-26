@@ -1,9 +1,12 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=14 format=1]
 
 [ext_resource path="res://scripts/gameplay/StarBase.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/gameplay/particle_star.tex" type="Texture" id=2]
 [ext_resource path="res://assets/textures/gameplay/item_star.tex" type="Texture" id=3]
 [ext_resource path="res://assets/textures/gameplay/light.tex" type="Texture" id=4]
+[ext_resource path="res://assets/sfx/src/star_pass_by_1.wav" type="Sample" id=5]
+[ext_resource path="res://assets/sfx/src/star_pass_by_2.wav" type="Sample" id=6]
+[ext_resource path="res://assets/sfx/src/star_pass_by_3.wav" type="Sample" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -21,6 +24,11 @@ tracks/0/path = NodePath("Star:transform/rot")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0, 20 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0.0, 360.0 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Star:transform/scale")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 5, 10, 15, 20 ), "transitions":FloatArray( 1, 1, 1, 1, 1 ), "update":0, "values":[ Vector2( 0.25, 0.25 ), Vector2( 0.28, 0.28 ), Vector2( 0.25, 0.25 ), Vector2( 0.28, 0.28 ), Vector2( 0.25, 0.25 ) ] }
 
 [sub_resource type="Animation" id=3]
 
@@ -64,6 +72,12 @@ tracks/2/path = NodePath(".:velocity/linear")
 tracks/2/interp = 1
 tracks/2/imported = false
 tracks/2/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":0, "values":[ Vector2( 0, 0 ) ] }
+
+[sub_resource type="SampleLibrary" id=6]
+
+samples/star_pass_by_1 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 5 ) }
+samples/star_pass_by_2 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 6 ) }
+samples/star_pass_by_3 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 7 ) }
 
 [node name="StarBase" type="RigidBody2D" groups=[ "star" ]]
 
@@ -159,13 +173,13 @@ randomness/spin_velocity = 0.34
 [node name="Star" type="Sprite" parent="."]
 
 visibility/light_mask = 0
-transform/rot = 296.464
-transform/scale = Vector2( 0.25, 0.25 )
+transform/rot = 183.85
+transform/scale = Vector2( 0.251283, 0.251283 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-visibility/visible = false
+visibility/light_mask = 0
 transform/scale = Vector2( 3.15354, 3.17099 )
 shape = SubResource( 1 )
 trigger = false
@@ -192,6 +206,17 @@ shadow/color = Color( 0, 0, 0, 0 )
 shadow/buffer_size = 2048
 shadow/esm_multiplier = 80.0
 shadow/item_mask = 1
+
+[node name="SamplePlayer2D" type="SamplePlayer2D" parent="."]
+
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 2048.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 1
+config/samples = SubResource( 6 )
+config/pitch_random = 0.0
 
 [connection signal="finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_finished"]
 
