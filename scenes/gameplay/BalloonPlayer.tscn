@@ -61,7 +61,7 @@ softness = 0.0
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 
-gravity_scale = -5.0
+gravity_scale = -14.0
 
 [node name="Player+Rope1" type="PinJoint2D" parent="."]
 
