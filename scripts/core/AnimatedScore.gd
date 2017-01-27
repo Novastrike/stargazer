@@ -23,7 +23,7 @@ func update_value():
 	else:
 		set_text(prefix + str(value) + suffix)
 		
-	if enable_sfx:
+	if enable_sfx and has_node("Sfx"):
 		get_node("Sfx").play(sfx_name)
 
 func interpolate_from_to(from, to):
