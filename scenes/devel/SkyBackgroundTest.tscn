@@ -63,6 +63,8 @@ offset = 1
 
 [node name="TiledSky3" parent="." instance=ExtResource( 2 )]
 
+visibility/light_mask = 0
+occluder/light_mask = 0
 tile_data = IntArray( -1, 0, -65536, 0, 65535, 0, 0, 0 )
 offset = 1
 
