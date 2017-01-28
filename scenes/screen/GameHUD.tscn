@@ -37,6 +37,7 @@ margin/right = 275.0
 margin/bottom = 631.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.455856, 0.631276, 0.933594, 1 )
+text = ""
 show_zero = false
 prefix = "+"
 
