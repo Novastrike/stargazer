@@ -30,14 +30,14 @@ tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8,
 [sub_resource type="Animation" id=4]
 
 resource/name = "score++2"
-length = 1.0
+length = 10.0
 loop = false
 step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:value")
 tracks/0/interp = 1
 tracks/0/imported = false
-tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0, 10 ] }
+tracks/0/keys = { "times":FloatArray( 0, 10.2 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0, 100 ] }
 
 [sub_resource type="Animation" id=5]
 
@@ -128,6 +128,6 @@ anims/template = SubResource( 6 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
-autoplay = ""
+autoplay = "score++3"
 
 

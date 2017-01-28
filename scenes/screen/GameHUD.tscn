@@ -27,9 +27,7 @@ margin/left = -25.0
 margin/top = 581.0
 margin/right = 120.0
 margin/bottom = 640.0
-text = "100000"
 align = 2
-value = 100000
 
 [node name="Combo" parent="." instance=ExtResource( 1 )]
 
@@ -39,8 +37,6 @@ margin/right = 275.0
 margin/bottom = 631.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.455856, 0.631276, 0.933594, 1 )
-text = "+2"
-value = 2
 show_zero = false
 prefix = "+"
 
