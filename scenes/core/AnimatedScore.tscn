@@ -11,6 +11,10 @@ font/use_mipmaps = false
 font/use_filter = false
 font/font = ExtResource( 1 )
 
+[sub_resource type="SampleLibrary" id=6]
+
+samples/bonus = { "db":0.0, "pitch":1.0, "sample":ExtResource( 3 ) }
+
 [sub_resource type="Animation" id=8]
 
 resource/name = "score++"
@@ -64,10 +68,6 @@ tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ "{score} + {combo}" ] }
 
-[sub_resource type="SampleLibrary" id=6]
-
-samples/bonus = { "db":0.0, "pitch":1.0, "sample":ExtResource( 3 ) }
-
 [node name="AnimatedScore" type="Label"]
 
 focus/ignore_mouse = true
@@ -76,16 +76,16 @@ size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 14.0
+margin/right = 145.0
+margin/bottom = 59.0
 custom_fonts/font = SubResource( 7 )
-text = "10"
+text = "0"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 script/script = ExtResource( 2 )
-value = 10
-show_zero = false
+value = 0
+show_zero = true
 prefix = ""
 suffix = ""
 enable_sfx = true
@@ -97,20 +97,6 @@ playback/process_mode = 1
 playback/active = false
 playback/repeat = false
 playback/speed = 1.0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
-playback/process_mode = 1
-playback/default_blend_time = 0.0
-root/root = NodePath("..")
-anims/score++ = SubResource( 8 )
-anims/score++2 = SubResource( 9 )
-anims/score++3 = SubResource( 10 )
-anims/template = SubResource( 11 )
-playback/active = true
-playback/speed = 1.0
-blend_times = [  ]
-autoplay = "score++3"
 
 [node name="Sfx" type="SamplePlayer" parent="."]
 
@@ -128,5 +114,19 @@ default/filter/gain = 1.0
 default/reverb_room = 2
 default/reverb_send = 0.0
 default/chorus_send = 0.0
+
+[node name="Tests" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/score++ = SubResource( 8 )
+anims/score++2 = SubResource( 9 )
+anims/score++3 = SubResource( 10 )
+anims/template = SubResource( 11 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
 
 
