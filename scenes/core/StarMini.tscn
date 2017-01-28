@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://assets/textures/gameplay/item_star.tex" type="Texture" id=1]
+
+[node name="Star" type="Sprite"]
+
+visibility/light_mask = 0
+transform/scale = Vector2( 0.015, 0.015 )
+texture = ExtResource( 1 )
+
+

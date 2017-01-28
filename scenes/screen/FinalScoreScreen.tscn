@@ -1,0 +1,110 @@
+[gd_scene load_steps=9 format=1]
+
+[ext_resource path="res://scenes/screen/SceneBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/textures/scene_items/ending_sky_bg.tex" type="Texture" id=2]
+[ext_resource path="res://scripts/core/Constellation.gd" type="Script" id=3]
+[ext_resource path="res://scenes/core/StarMini.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/textures/scene_items/ending_ground.tex" type="Texture" id=5]
+[ext_resource path="res://assets/textures/scene_items/couple_foreground.tex" type="Texture" id=6]
+
+[sub_resource type="Curve2D" id=2]
+
+bake_interval = 5.0
+_data = { "points":Vector2Array( 0, 0, 0, 0, -195.94, -557.402, 0, 0, 0, 0, -137.946, -538.336, 0, 0, 0, 0, -118.88, -527.611, 0, 0, 0, 0, -114.114, -510.928 ) }
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "New Anim"
+length = 60.0
+loop = false
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/ScrollingBg:transform/rot")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 60 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ -6.0, 6.0 ] }
+
+[node name="SceneBase" instance=ExtResource( 1 )]
+
+next_scene = "res://scenes/screen/MainScene.tscn"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="ScrollingBg" type="Node2D" parent="CanvasLayer"]
+
+transform/pos = Vector2( 239, 603 )
+
+[node name="SkyBg" type="TextureFrame" parent="CanvasLayer/ScrollingBg"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -325.0
+margin/top = -629.0
+margin/right = 330.0
+margin/bottom = 72.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+
+[node name="Stars" type="Node2D" parent="CanvasLayer/ScrollingBg"]
+
+[node name="Constellation" type="Path2D" parent="CanvasLayer/ScrollingBg/Stars"]
+
+curve = SubResource( 2 )
+script/script = ExtResource( 3 )
+star = ExtResource( 4 )
+
+[node name="Floor" type="TextureFrame" parent="CanvasLayer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 526.0
+margin/right = 480.0
+margin/bottom = 654.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 5
+
+[node name="Persons" type="TextureFrame" parent="CanvasLayer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 58.0
+margin/top = 452.0
+margin/right = 250.0
+margin/bottom = 644.0
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+"anims/New Anim" = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "New Anim"
+
+
