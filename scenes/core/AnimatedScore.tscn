@@ -7,7 +7,7 @@
 [sub_resource type="DynamicFont" id=1]
 
 font/size = 32
-font/use_mipmaps = false
+font/use_mipmaps = true
 font/use_filter = true
 font/font = ExtResource( 1 )
 
@@ -79,6 +79,8 @@ margin/top = 0.0
 margin/right = 145.0
 margin/bottom = 59.0
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -89,7 +91,6 @@ prefix = ""
 suffix = ""
 enable_sfx = true
 sfx_name = "bonus"
-debug = true
 
 [node name="Tween" type="Tween" parent="."]
 
