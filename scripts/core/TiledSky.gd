@@ -52,6 +52,9 @@ func fill_current_tiles():
 	"""Clear and generate the sky tiles."""
 	var balloons = get_tree().get_nodes_in_group(target_group)
 	if balloons.size() > 0:
+		#print(balloons[0].get_linear_velocity())
+		var velocity = balloons[0].get_linear_velocity()
+		velocity.y *= -1
 		var center = world_to_map(balloons[0].get_global_pos())
 		if last_center == center:
 			return

@@ -32,14 +32,14 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 scroll/offset = Vector2( 0, 0 )
 scroll/base_offset = Vector2( 0, 0 )
-scroll/base_scale = Vector2( 0.5, 0.5 )
+scroll/base_scale = Vector2( 1, 1 )
 scroll/limit_begin = Vector2( 0, 0 )
 scroll/limit_end = Vector2( 0, 0 )
-scroll/ignore_camera_zoom = false
+scroll/ignore_camera_zoom = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
-motion/scale = Vector2( 0.1, 0.1 )
+motion/scale = Vector2( 1, 1 )
 motion/offset = Vector2( 0, 0 )
 motion/mirroring = Vector2( 0, 0 )
 
@@ -56,7 +56,6 @@ color = Color( 0.636719, 0.268616, 0.268616, 1 )
 
 [node name="TiledSky2" parent="ParallaxBackground/ParallaxLayer" instance=ExtResource( 2 )]
 
-visibility/visible = false
 visibility/opacity = 0.49
 tile_data = IntArray( -1, 0, -65536, 0, 65535, 0, 0, 0 )
 offset = 1
@@ -86,12 +85,27 @@ color = Color( 0.256248, 0.224304, 0.410156, 1 )
 
 [node name="SpawnerTest" parent="." instance=ExtResource( 3 )]
 
+[node name="BalloonBody" parent="SpawnerTest/BalloonPlayer"]
+
+debug = true
+debug_explode = false
+
+[node name="BalloonBody2" parent="SpawnerTest/BalloonPlayer"]
+
+debug = true
+debug_explode = false
+
+[node name="BalloonBody3" parent="SpawnerTest/BalloonPlayer"]
+
+debug = true
+debug_explode = false
+
 [node name="Camera2D" type="Camera2D" parent="SpawnerTest/BalloonPlayer/Player"]
 
 anchor_mode = 1
 rotating = false
 current = true
-zoom = Vector2( 2, 2 )
+zoom = Vector2( 6, 6 )
 limit/left = -10000000
 limit/top = -10000000
 limit/right = 10000000
