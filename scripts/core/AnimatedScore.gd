@@ -9,9 +9,11 @@ export(bool) var enable_sfx = true
 export(String) var sfx_name = ''
 
 onready var tween = get_node("Tween")
+var init = false
 
 func _ready():
-	pass
+	update_value()
+	init = true
 
 func _update_value(val):
 	value = int(val)
@@ -23,8 +25,9 @@ func update_value():
 	else:
 		set_text(prefix + str(value) + suffix)
 		
-	if enable_sfx and has_node("Sfx"):
+	if enable_sfx and has_node("Sfx") and init:
 		get_node("Sfx").play(sfx_name)
+		
 
 func interpolate_from_to(from, to):
 	tween.interpolate_property(self, 'value', from, to, 1, 0, 0)
@@ -35,4 +38,4 @@ func add(val):
 	
 func sub(val):
 	interpolate_from_to(value, value-val)
-	
+

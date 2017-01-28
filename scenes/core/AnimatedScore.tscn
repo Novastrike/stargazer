@@ -4,18 +4,18 @@
 [ext_resource path="res://scripts/core/AnimatedScore.gd" type="Script" id=2]
 [ext_resource path="res://assets/sfx/bonus.smp" type="Sample" id=3]
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=1]
 
 font/size = 32
 font/use_mipmaps = false
-font/use_filter = false
+font/use_filter = true
 font/font = ExtResource( 1 )
 
-[sub_resource type="SampleLibrary" id=6]
+[sub_resource type="SampleLibrary" id=2]
 
 samples/bonus = { "db":0.0, "pitch":1.0, "sample":ExtResource( 3 ) }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=3]
 
 resource/name = "score++"
 length = 1.0
@@ -27,7 +27,7 @@ tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" ] }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=4]
 
 resource/name = "score++2"
 length = 1.0
@@ -39,7 +39,7 @@ tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0, 10 ] }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=5]
 
 resource/name = "score++3"
 length = 1.0
@@ -56,7 +56,7 @@ tracks/1/interp = 1
 tracks/1/imported = false
 tracks/1/keys = { "times":FloatArray( 0.1 ), "transitions":FloatArray( 1 ), "values":[ { "args":[ 100 ], "method":"add" } ] }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=6]
 
 resource/name = "template"
 length = 1.0
@@ -78,8 +78,7 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 145.0
 margin/bottom = 59.0
-custom_fonts/font = SubResource( 7 )
-text = "0"
+custom_fonts/font = SubResource( 1 )
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -90,6 +89,7 @@ prefix = ""
 suffix = ""
 enable_sfx = true
 sfx_name = "bonus"
+debug = true
 
 [node name="Tween" type="Tween" parent="."]
 
@@ -101,7 +101,7 @@ playback/speed = 1.0
 [node name="Sfx" type="SamplePlayer" parent="."]
 
 config/polyphony = 10
-config/samples = SubResource( 6 )
+config/samples = SubResource( 2 )
 default/volume_db = 0.0
 default/pitch_scale = 1.0
 default/pan = 0.0
@@ -120,10 +120,10 @@ default/chorus_send = 0.0
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/score++ = SubResource( 8 )
-anims/score++2 = SubResource( 9 )
-anims/score++3 = SubResource( 10 )
-anims/template = SubResource( 11 )
+anims/score++ = SubResource( 3 )
+anims/score++2 = SubResource( 4 )
+anims/score++3 = SubResource( 5 )
+anims/template = SubResource( 6 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
