@@ -71,3 +71,7 @@ func _on_AnimationPlayer_finished():
 	elif anime.get_current_animation() == 'gotcha':
 		emit_signal('gotcha')
 		destruct()
+
+
+func _on_VisibilityNotifier2D_enter_screen():
+	get_node("SamplePlayer2D").play("star_pass_by_1")

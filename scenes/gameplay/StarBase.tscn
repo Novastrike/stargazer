@@ -4,16 +4,16 @@
 [ext_resource path="res://assets/textures/gameplay/particle_star.tex" type="Texture" id=2]
 [ext_resource path="res://assets/textures/gameplay/item_star.tex" type="Texture" id=3]
 [ext_resource path="res://assets/textures/gameplay/light.tex" type="Texture" id=4]
-[ext_resource path="res://assets/sfx/src/star_pass_by_1.wav" type="Sample" id=5]
-[ext_resource path="res://assets/sfx/src/star_pass_by_2.wav" type="Sample" id=6]
-[ext_resource path="res://assets/sfx/src/star_pass_by_3.wav" type="Sample" id=7]
+[ext_resource path="res://assets/sfx/star_pass_by_1.smp" type="Sample" id=5]
+[ext_resource path="res://assets/sfx/star_pass_by_2.smp" type="Sample" id=6]
+[ext_resource path="res://assets/sfx/star_pass_by_3.smp" type="Sample" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 10.0
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 
 length = 1.0
 loop = false
@@ -29,13 +29,13 @@ tracks/1/interp = 1
 tracks/1/imported = false
 tracks/1/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 1.0, 0.0 ] }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 
 length = 1.0
 loop = false
 step = 0.1
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 
 length = 1.0
 loop = false
@@ -56,7 +56,7 @@ tracks/2/interp = 1
 tracks/2/imported = false
 tracks/2/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":0, "values":[ Vector2( 0, 0 ) ] }
 
-[sub_resource type="SampleLibrary" id=6]
+[sub_resource type="SampleLibrary" id=5]
 
 samples/star_pass_by_1 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 5 ) }
 samples/star_pass_by_2 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 6 ) }
@@ -94,9 +94,9 @@ points = 1
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/explode = SubResource( 3 )
-anims/gotcha = SubResource( 4 )
-anims/reset = SubResource( 5 )
+anims/explode = SubResource( 2 )
+anims/gotcha = SubResource( 3 )
+anims/reset = SubResource( 4 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -196,9 +196,15 @@ params/attenuation/min_distance = 1.0
 params/attenuation/max_distance = 2048.0
 params/attenuation/distance_exp = 1.0
 config/polyphony = 1
-config/samples = SubResource( 6 )
+config/samples = SubResource( 5 )
 config/pitch_random = 0.0
 
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+rect = Rect2( -10, -10, 20, 20 )
+
 [connection signal="finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_finished"]
+
+[connection signal="enter_screen" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_enter_screen"]
 
 
