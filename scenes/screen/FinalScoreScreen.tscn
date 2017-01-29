@@ -21,7 +21,7 @@ tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0, 60 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ -6.0, 6.0 ] }
 
-[node name="SceneBase" instance=ExtResource( 1 )]
+[node name="FinalScore" instance=ExtResource( 1 )]
 
 next_scene = "res://scenes/screen/MainScene.tscn"
 
@@ -58,15 +58,6 @@ constellations = [ ExtResource( 4 ), ExtResource( 5 ) ]
 constellation_base = ExtResource( 6 )
 debug = true
 debug_stars = [ 5, 3 ]
-
-[node name="Constellation" parent="CanvasLayer/ScrollingBg/Stars" instance=ExtResource( 6 )]
-
-transform/pos = Vector2( -92.4692, -482.895 )
-
-[node name="Constellation2" parent="CanvasLayer/ScrollingBg/Stars" instance=ExtResource( 6 )]
-
-transform/pos = Vector2( 139.185, -509.868 )
-curve = ExtResource( 4 )
 
 [node name="Floor" type="TextureFrame" parent="CanvasLayer"]
 
