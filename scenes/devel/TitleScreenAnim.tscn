@@ -134,7 +134,7 @@ transform/pos = Vector2( -284, 177 )
 texture = ExtResource( 2 )
 centered = false
 region = true
-region_rect = Rect2( 0, 0, 2048, 512 )
+region_rect = Rect2( 5, 5, 2048, 512 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/ParallaxLayer2/white_cloud"]
 
