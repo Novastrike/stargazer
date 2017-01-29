@@ -1,16 +1,11 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://scenes/screen/SceneBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/textures/scene_items/ending_sky_bg.tex" type="Texture" id=2]
-[ext_resource path="res://scripts/core/Constellation.gd" type="Script" id=3]
-[ext_resource path="res://scenes/core/StarMini.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/core/Constellation.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/constellations/aries.tres" type="Curve2D" id=4]
 [ext_resource path="res://assets/textures/scene_items/ending_ground.tex" type="Texture" id=5]
 [ext_resource path="res://assets/textures/scene_items/couple_foreground.tex" type="Texture" id=6]
-
-[sub_resource type="Curve2D" id=2]
-
-bake_interval = 5.0
-_data = { "points":Vector2Array( 0, 0, 0, 0, -195.94, -557.402, 0, 0, 0, 0, -137.946, -538.336, 0, 0, 0, 0, -118.88, -527.611, 0, 0, 0, 0, -114.114, -510.928 ) }
 
 [sub_resource type="Animation" id=1]
 
@@ -55,11 +50,14 @@ stretch_mode = 5
 
 [node name="Stars" type="Node2D" parent="CanvasLayer/ScrollingBg"]
 
-[node name="Constellation" type="Path2D" parent="CanvasLayer/ScrollingBg/Stars"]
+[node name="Constellation" parent="CanvasLayer/ScrollingBg/Stars" instance=ExtResource( 3 )]
 
-curve = SubResource( 2 )
-script/script = ExtResource( 3 )
-star = ExtResource( 4 )
+transform/pos = Vector2( -92.4692, -482.895 )
+
+[node name="Constellation2" parent="CanvasLayer/ScrollingBg/Stars" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 139.185, -509.868 )
+curve = ExtResource( 4 )
 
 [node name="Floor" type="TextureFrame" parent="CanvasLayer"]
 
