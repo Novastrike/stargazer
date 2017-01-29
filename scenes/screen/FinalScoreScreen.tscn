@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=18 format=1]
 
 [ext_resource path="res://scenes/screen/SceneBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/textures/scene_items/ending_sky_bg.tex" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/textures/scene_items/couple_foreground.tex" type="Texture" id=8]
 [ext_resource path="res://assets/fonts/great-vibes/src/GreatVibes-Regular.ttf" type="DynamicFontData" id=9]
 [ext_resource path="res://scripts/core/FinalScore.gd" type="Script" id=10]
+[ext_resource path="res://scripts/core/ScoreButton.gd" type="Script" id=11]
 
 [sub_resource type="DynamicFont" id=2]
 
@@ -17,6 +18,49 @@ font/size = 32
 font/use_mipmaps = true
 font/use_filter = true
 font/font = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=3]
+
+font/size = 26
+font/use_mipmaps = true
+font/use_filter = true
+font/font = ExtResource( 9 )
+
+[sub_resource type="Animation" id=4]
+
+resource/name = "hide"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:visibility/opacity")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 1.0, 0.0 ] }
+
+[sub_resource type="Animation" id=6]
+
+resource/name = "init"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:visibility/opacity")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":0, "values":[ 0.0 ] }
+
+[sub_resource type="Animation" id=5]
+
+resource/name = "show"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:visibility/opacity")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0.0, 1.0 ] }
 
 [sub_resource type="Animation" id=1]
 
@@ -49,7 +93,7 @@ scale = Vector2( 1, 1 )
 [node name="ScrollingBg" type="Node2D" parent="SkyCanvas"]
 
 transform/pos = Vector2( 239, 603 )
-transform/rot = -6.0
+transform/rot = -5.4
 
 [node name="SkyBg" type="TextureFrame" parent="SkyCanvas/ScrollingBg"]
 
@@ -71,7 +115,7 @@ transform/pos = Vector2( -240.057, -599.982 )
 script/script = ExtResource( 3 )
 constellations = [ ExtResource( 4 ), ExtResource( 5 ) ]
 constellation_base = ExtResource( 6 )
-debug = true
+debug = false
 debug_stars = [ 5, 3 ]
 
 [node name="Floor" type="TextureFrame" parent="SkyCanvas"]
@@ -111,7 +155,6 @@ scale = Vector2( 1, 1 )
 
 [node name="FinalScore" type="Label" parent="HUD"]
 
-visibility/opacity = 0.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -121,6 +164,9 @@ margin/top = 575.0
 margin/right = 450.0
 margin/bottom = 639.0
 custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_shadow = Color( 0.27289, 0.107666, 0.492188, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
 text = "Final score: {score}"
 align = 2
 valign = 1
@@ -128,6 +174,55 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 script/script = ExtResource( 10 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="BackButton" type="TextureButton" parent="HUD"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 480.0
+margin/bottom = 640.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+script/script = ExtResource( 11 )
+
+[node name="Label" type="Label" parent="HUD/BackButton"]
+
+visibility/opacity = 0.6
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 384.0
+margin/right = 480.0
+margin/bottom = 448.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_shadow = Color( 0.128472, 0.0426483, 0.253906, 1 )
+text = "Press again to back to title screen"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/BackButton"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/hide = SubResource( 4 )
+anims/init = SubResource( 6 )
+anims/show = SubResource( 5 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "init"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
@@ -139,5 +234,7 @@ playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = "New Anim"
+
+[connection signal="pressed" from="HUD/BackButton" to="HUD/BackButton" method="_on_TextureButton_pressed"]
 
 

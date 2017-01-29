@@ -36,3 +36,4 @@ func _set_end(val):
 	end = val
 	if end:
 		emit_signal('end', next_scene)
+
