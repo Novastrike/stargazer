@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://scenes/screen/SceneBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/textures/scene_items/ending_sky_bg.tex" type="Texture" id=2]
-[ext_resource path="res://scenes/core/Constellation.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/core/ScoreStars.gd" type="Script" id=3]
 [ext_resource path="res://assets/constellations/aries.tres" type="Curve2D" id=4]
-[ext_resource path="res://assets/textures/scene_items/ending_ground.tex" type="Texture" id=5]
-[ext_resource path="res://assets/textures/scene_items/couple_foreground.tex" type="Texture" id=6]
+[ext_resource path="res://assets/constellations/cancer.tres" type="Curve2D" id=5]
+[ext_resource path="res://scenes/core/Constellation.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/textures/scene_items/ending_ground.tex" type="Texture" id=7]
+[ext_resource path="res://assets/textures/scene_items/couple_foreground.tex" type="Texture" id=8]
 
 [sub_resource type="Animation" id=1]
 
@@ -50,11 +52,18 @@ stretch_mode = 5
 
 [node name="Stars" type="Node2D" parent="CanvasLayer/ScrollingBg"]
 
-[node name="Constellation" parent="CanvasLayer/ScrollingBg/Stars" instance=ExtResource( 3 )]
+transform/pos = Vector2( 4.31702, -410.109 )
+script/script = ExtResource( 3 )
+constellations = [ ExtResource( 4 ), ExtResource( 5 ) ]
+constellation_base = ExtResource( 6 )
+debug = true
+debug_stars = [ 5, 3 ]
+
+[node name="Constellation" parent="CanvasLayer/ScrollingBg/Stars" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( -92.4692, -482.895 )
 
-[node name="Constellation2" parent="CanvasLayer/ScrollingBg/Stars" instance=ExtResource( 3 )]
+[node name="Constellation2" parent="CanvasLayer/ScrollingBg/Stars" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 139.185, -509.868 )
 curve = ExtResource( 4 )
@@ -69,11 +78,11 @@ margin/left = 0.0
 margin/top = 526.0
 margin/right = 480.0
 margin/bottom = 654.0
-texture = ExtResource( 5 )
+texture = ExtResource( 7 )
 expand = true
 stretch_mode = 5
 
-[node name="Persons" type="TextureFrame" parent="CanvasLayer"]
+[node name="Couple" type="TextureFrame" parent="CanvasLayer"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -83,7 +92,7 @@ margin/left = 58.0
 margin/top = 452.0
 margin/right = 250.0
 margin/bottom = 644.0
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 expand = true
 stretch_mode = 5
 
