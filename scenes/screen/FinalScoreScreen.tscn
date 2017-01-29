@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://scenes/screen/SceneBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/textures/scene_items/ending_sky_bg.tex" type="Texture" id=2]
@@ -8,6 +8,15 @@
 [ext_resource path="res://scenes/core/Constellation.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/textures/scene_items/ending_ground.tex" type="Texture" id=7]
 [ext_resource path="res://assets/textures/scene_items/couple_foreground.tex" type="Texture" id=8]
+[ext_resource path="res://assets/fonts/great-vibes/src/GreatVibes-Regular.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://scripts/core/FinalScore.gd" type="Script" id=10]
+
+[sub_resource type="DynamicFont" id=2]
+
+font/size = 32
+font/use_mipmaps = true
+font/use_filter = true
+font/font = ExtResource( 9 )
 
 [sub_resource type="Animation" id=1]
 
@@ -16,27 +25,33 @@ length = 60.0
 loop = false
 step = 1.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasLayer/ScrollingBg:transform/rot")
+tracks/0/path = NodePath("SkyCanvas/ScrollingBg:transform/rot")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0, 60 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ -6.0, 6.0 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("HUD/FinalScore:visibility/opacity")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 3 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0.0, 1.0 ] }
 
 [node name="FinalScore" instance=ExtResource( 1 )]
 
 next_scene = "res://scenes/screen/MainScene.tscn"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="SkyCanvas" type="CanvasLayer" parent="."]
 
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 
-[node name="ScrollingBg" type="Node2D" parent="CanvasLayer"]
+[node name="ScrollingBg" type="Node2D" parent="SkyCanvas"]
 
 transform/pos = Vector2( 239, 603 )
+transform/rot = -6.0
 
-[node name="SkyBg" type="TextureFrame" parent="CanvasLayer/ScrollingBg"]
+[node name="SkyBg" type="TextureFrame" parent="SkyCanvas/ScrollingBg"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -50,7 +65,7 @@ texture = ExtResource( 2 )
 expand = true
 stretch_mode = 5
 
-[node name="Stars" type="Node2D" parent="CanvasLayer/ScrollingBg"]
+[node name="Stars" type="Node2D" parent="SkyCanvas/ScrollingBg"]
 
 transform/pos = Vector2( -240.057, -599.982 )
 script/script = ExtResource( 3 )
@@ -59,7 +74,7 @@ constellation_base = ExtResource( 6 )
 debug = true
 debug_stars = [ 5, 3 ]
 
-[node name="Floor" type="TextureFrame" parent="CanvasLayer"]
+[node name="Floor" type="TextureFrame" parent="SkyCanvas"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -73,7 +88,7 @@ texture = ExtResource( 7 )
 expand = true
 stretch_mode = 5
 
-[node name="Couple" type="TextureFrame" parent="CanvasLayer"]
+[node name="Couple" type="TextureFrame" parent="SkyCanvas"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -87,12 +102,32 @@ texture = ExtResource( 8 )
 expand = true
 stretch_mode = 5
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="HUD" type="CanvasLayer" parent="."]
 
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
+
+[node name="FinalScore" type="Label" parent="HUD"]
+
+visibility/opacity = 0.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 210.0
+margin/top = 575.0
+margin/right = 450.0
+margin/bottom = 639.0
+custom_fonts/font = SubResource( 2 )
+text = "Final score: {score}"
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script/script = ExtResource( 10 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
