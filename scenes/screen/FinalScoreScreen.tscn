@@ -52,7 +52,7 @@ stretch_mode = 5
 
 [node name="Stars" type="Node2D" parent="CanvasLayer/ScrollingBg"]
 
-transform/pos = Vector2( 4.31702, -410.109 )
+transform/pos = Vector2( -240.057, -599.982 )
 script/script = ExtResource( 3 )
 constellations = [ ExtResource( 4 ), ExtResource( 5 ) ]
 constellation_base = ExtResource( 6 )

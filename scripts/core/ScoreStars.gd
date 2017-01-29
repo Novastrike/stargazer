@@ -13,17 +13,19 @@ func _ready():
 	render_constellations()
 
 func render_constellations():
-	print(Score.colected_stars)
 	if debug:
 		star_points += debug_stars[0]
 		star_points += debug_stars[1] * 2
 	
-	print(star_points)
+	randomize()
 	for constellation in constellations:
 		if constellation.get_point_count() <= star_points:
 			star_points -= constellation.get_point_count()
 			var constellation_node = constellation_base.instance()
 			add_child(constellation_node)
+			var x = rand_range(0, get_viewport_rect().size.x/1.5)
+			var y = rand_range(0, get_viewport_rect().size.y/1.5)
+			constellation_node.set_pos(Vector2(x, y))
 			constellation_node.set_curve(constellation)
 			constellation_node.render_stars()
 
