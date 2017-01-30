@@ -59,6 +59,7 @@ softness = 0.0
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 
+visibility/visible = false
 gravity_scale = -14.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -171,6 +172,5 @@ softness = 0.0
 [node name="BasketBody" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 1, 283 )
-z/z = 1
 
 
