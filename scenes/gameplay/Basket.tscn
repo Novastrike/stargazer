@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://scripts/gameplay/Basket.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/gameplay/basket.tex" type="Texture" id=2]
@@ -11,17 +11,12 @@ extents = Vector2( 10, 10 )
 [sub_resource type="ConcavePolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
-segments = Vector2Array( -76.0309, -5.18159, -74.4575, 13.5247, -74.4575, 13.5247, -60.6463, 39.0492, -60.6463, 39.0492, -52.9273, 62.3333, -52.9273, 62.3333, 57.3978, 62.3333, 57.3978, 62.3333, 64.3537, 32.9303, 64.3537, 32.9303, 75.3677, 14.9233, 75.3677, 14.9233, 77.116, -6.40537, 77.116, -6.40537, 71.6964, -7.62914, 71.6964, -7.62914, 68.1999, 10.9023, 68.1999, 10.9023, 58.3684, 29.9799, 58.3684, 29.9799, 52.8153, 53.5597, 52.8153, 53.5597, -46.3106, 54.7835, -46.3106, 54.7835, -53.3036, 36.6016, -53.3036, 36.6016, -67.4645, 12.6506, -67.4645, 12.6506, -70.2617, -5.70606, -70.2617, -5.70606, -76.0309, -5.18159 )
+segments = Vector2Array( -73.3289, -17.8772, -74.4575, 13.5247, -74.4575, 13.5247, -69.3568, 57.1959, -69.3568, 57.1959, -53.4683, 69.1122, -53.4683, 69.1122, 58.9427, 67.5234, 58.9427, 67.5234, 69.6674, 58.3875, 69.6674, 58.3875, 75.3677, 14.9233, 75.3677, 14.9233, 73.2423, -16.2883, 73.2423, -16.2883, 67.6813, -11.919, 67.6813, -11.919, 68.1999, 10.9023, 68.1999, 10.9023, 62.5176, 55.2098, 62.5176, 55.2098, 50.9984, 59.1819, 50.9984, 59.1819, -49.8934, 60.3736, -49.8934, 60.3736, -61.4125, 52.0321, -61.4125, 52.0321, -67.4645, 12.6506, -67.4645, 12.6506, -66.9735, -12.3162, -66.9735, -12.3162, -73.3289, -17.8772 )
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -52.0119, 51.5773, -54.1559, 45.5027, 56.1567, 45.6558 )
-
-[sub_resource type="ConvexPolygonShape2D" id=4]
-
-custom_solver_bias = 0.0
-points = Vector2Array( 54.0128, 57.805, -49.8169, 58.5197, -52.0119, 51.5773, 56.1567, 45.6558, 55.2379, 51.22 )
+points = Vector2Array( 66.4897, 42.4991, 64.1064, 57.1959, 52.9845, 61.5652, -49.8934, 61.9624, -59.8237, 54.8126, -63.3986, 43.6907 )
 
 [node name="BasketBody" type="RigidBody2D"]
 
@@ -58,6 +53,7 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
+visibility/visible = false
 transform/pos = Vector2( 0.734336, 28.1281 )
 transform/scale = Vector2( 7.08701, 3.4332 )
 shape = SubResource( 1 )
@@ -66,8 +62,9 @@ _update_shape_index = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
+visibility/visible = false
 build_mode = 1
-polygon = Vector2Array( -76.0309, -5.18159, -74.4575, 13.5247, -60.6463, 39.0492, -52.9273, 62.3333, 57.3978, 62.3333, 64.3537, 32.9303, 75.3677, 14.9233, 77.116, -6.40537, 71.6964, -7.62914, 68.1999, 10.9023, 58.3684, 29.9799, 52.8153, 53.5597, -46.3106, 54.7835, -53.3036, 36.6016, -67.4645, 12.6506, -70.2617, -5.70606 )
+polygon = Vector2Array( -73.3289, -17.8772, -74.4575, 13.5247, -69.3568, 57.1959, -53.4683, 69.1122, 58.9427, 67.5234, 69.6674, 58.3875, 75.3677, 14.9233, 73.2423, -16.2883, 67.6813, -11.919, 68.1999, 10.9023, 62.5176, 55.2098, 50.9984, 59.1819, -49.8934, 60.3736, -61.4125, 52.0321, -67.4645, 12.6506, -66.9735, -12.3162 )
 shape_range = Vector2( 1, 1 )
 trigger = false
 
@@ -77,9 +74,6 @@ input/pickable = true
 shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
-shapes/1/shape = SubResource( 4 )
-shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/1/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
@@ -87,9 +81,10 @@ angular_damp = 1.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GotchaArea"]
 
+visibility/visible = false
 build_mode = 0
-polygon = Vector2Array( -54.1559, 45.5027, -52.0119, 51.5773, -49.8169, 58.5197, 54.0128, 57.805, 55.2379, 51.22, 56.1567, 45.6558 )
-shape_range = Vector2( 0, 1 )
+polygon = Vector2Array( -63.3986, 43.6907, -59.8237, 54.8126, -49.8934, 61.9624, 52.9845, 61.5652, 64.1064, 57.1959, 66.4897, 42.4991 )
+shape_range = Vector2( 0, 0 )
 trigger = false
 
 [connection signal="body_enter" from="GotchaArea" to="." method="_on_GotchaArea_body_enter"]

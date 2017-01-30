@@ -3,13 +3,13 @@
 [ext_resource path="res://assets/textures/scene_items/sky_bg.tex" type="Texture" id=1]
 [ext_resource path="res://assets/textures/scene_items/sunrise_cloud.tex" type="Texture" id=2]
 [ext_resource path="res://assets/textures/scene_items/cloud_bg.tex" type="Texture" id=3]
-[ext_resource path="res://assets/textures/scene_items/title_graphic.tex" type="Texture" id=4]
-[ext_resource path="res://assets/textures/scene_items/grass_tuft.tex" type="Texture" id=5]
-[ext_resource path="res://assets/textures/scene_items/ground.tex" type="Texture" id=6]
-[ext_resource path="res://scenes/gameplay/BalloonPlayer.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/textures/scene_items/grass_tuft_2.tex" type="Texture" id=8]
-[ext_resource path="res://assets/shaders/simple_wind_shader.tres" type="CanvasItemMaterial" id=9]
-[ext_resource path="res://assets/textures/scene_items/bg_flowers.tex" type="Texture" id=10]
+[ext_resource path="res://assets/textures/scene_items/grass_tuft.tex" type="Texture" id=4]
+[ext_resource path="res://assets/textures/scene_items/ground.tex" type="Texture" id=5]
+[ext_resource path="res://scenes/gameplay/BalloonPlayer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/textures/scene_items/grass_tuft_2.tex" type="Texture" id=7]
+[ext_resource path="res://assets/shaders/simple_wind_shader.tres" type="CanvasItemMaterial" id=8]
+[ext_resource path="res://assets/textures/scene_items/bg_flowers.tex" type="Texture" id=9]
+[ext_resource path="res://assets/textures/scene_items/title_graphic.tex" type="Texture" id=10]
 
 [sub_resource type="Animation" id=1]
 
@@ -186,12 +186,6 @@ autoplay = ""
 
 [node name="MainLayer" type="Node2D" parent="."]
 
-[node name="title_graphic" type="Sprite" parent="MainLayer"]
-
-transform/pos = Vector2( 237, 91 )
-transform/scale = Vector2( 0.419922, 0.419922 )
-texture = ExtResource( 4 )
-
 [node name="GrassBack" type="Node2D" parent="MainLayer"]
 
 editor/display_folded = true
@@ -206,7 +200,7 @@ material/material = SubResource( 5 )
 transform/pos = Vector2( -986.145, -355.215 )
 transform/rot = -6.15568
 transform/scale = Vector2( 0.68515, 0.68515 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 modulate = Color( 0.286182, 0.143188, 0.796875, 1 )
 
 [node name="grass_tuft6" type="Sprite" parent="MainLayer/GrassBack"]
@@ -216,7 +210,7 @@ material/material = SubResource( 6 )
 transform/pos = Vector2( -526.124, -300.08 )
 transform/rot = -6.15568
 transform/scale = Vector2( 0.68515, 0.68515 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 flip_h = true
 modulate = Color( 0.286182, 0.143188, 0.796875, 1 )
 
@@ -224,9 +218,9 @@ modulate = Color( 0.286182, 0.143188, 0.796875, 1 )
 
 transform/pos = Vector2( 251.19, 538.404 )
 transform/scale = Vector2( 0.835572, 0.874104 )
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
-[node name="BalloonPlayer" parent="MainLayer" instance=ExtResource( 7 )]
+[node name="BalloonPlayer" parent="MainLayer" instance=ExtResource( 6 )]
 
 editor/display_folded = true
 transform/pos = Vector2( 239, 186 )
@@ -251,7 +245,7 @@ z/z = 1
 transform/pos = Vector2( -272.555, -78.441 )
 transform/rot = 6.18468
 transform/scale = Vector2( 0.0597345, 0.0597345 )
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 flip_h = true
 modulate = Color( 0.796875, 0.796875, 0.796875, 1 )
 region = true
@@ -262,7 +256,7 @@ region_rect = Rect2( 0, 0, 900, 200 )
 transform/pos = Vector2( -383.373, -78.1939 )
 transform/rot = -7.62422
 transform/scale = Vector2( 0.0597345, 0.0597345 )
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 modulate = Color( 0.796875, 0.796875, 0.796875, 1 )
 region = true
 region_rect = Rect2( 0, 0, 800, 200 )
@@ -271,7 +265,7 @@ region_rect = Rect2( 0, 0, 800, 200 )
 
 transform/pos = Vector2( -328.863, -75.2848 )
 transform/scale = Vector2( 0.08529, 0.0597345 )
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 flip_h = true
 modulate = Color( 0.796875, 0.796875, 0.796875, 1 )
 region = true
@@ -286,9 +280,9 @@ transform/scale = Vector2( 0.44422, 0.44422 )
 
 [node name="grass_tuft3" type="Sprite" parent="MainLayer/GrassFront"]
 
-material/material = ExtResource( 9 )
+material/material = ExtResource( 8 )
 transform/pos = Vector2( -21.4455, -180.091 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 flip_h = true
 
 [node name="bg_flowers4" type="Sprite" parent="MainLayer/GrassFront"]
@@ -297,21 +291,21 @@ material/material = SubResource( 7 )
 transform/pos = Vector2( -226.162, -326.701 )
 transform/rot = 6.81639
 transform/scale = Vector2( 0.614421, 0.614421 )
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 flip_h = true
 
 [node name="grass_tuft8" type="Sprite" parent="MainLayer/GrassFront"]
 
-material/material = ExtResource( 9 )
-texture = ExtResource( 5 )
+material/material = ExtResource( 8 )
+texture = ExtResource( 4 )
 flip_h = true
 
 [node name="grass_tuft4" type="Sprite" parent="MainLayer/GrassFront"]
 
-material/material = ExtResource( 9 )
+material/material = ExtResource( 8 )
 transform/pos = Vector2( -1406.24, -332.016 )
 transform/rot = -17.6572
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 flip_h = true
 
 [node name="bg_flowers2" type="Sprite" parent="MainLayer/GrassFront"]
@@ -320,42 +314,42 @@ material/material = SubResource( 8 )
 transform/pos = Vector2( -1161.67, -426.729 )
 transform/rot = -9.38129
 transform/scale = Vector2( 0.614421, 0.614421 )
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 
 [node name="grass_tuft7" type="Sprite" parent="MainLayer/GrassFront"]
 
-material/material = ExtResource( 9 )
+material/material = ExtResource( 8 )
 transform/pos = Vector2( -1571.01, -192.442 )
 transform/rot = -17.6572
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 flip_h = true
 
 [node name="grass_tuft" type="Sprite" parent="MainLayer/GrassFront"]
 
-material/material = ExtResource( 9 )
+material/material = ExtResource( 8 )
 transform/pos = Vector2( -1012.38, -19.3785 )
 transform/rot = -6.15568
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 
 [node name="grass_tuft2" type="Sprite" parent="MainLayer/GrassFront"]
 
-material/material = ExtResource( 9 )
+material/material = ExtResource( 8 )
 transform/pos = Vector2( -496.223, 9.65991 )
 transform/rot = -6.15568
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 flip_h = true
 
 [node name="bg_flowers" type="Sprite" parent="MainLayer/GrassFront"]
 
 material/material = SubResource( 9 )
 transform/pos = Vector2( -458.961, -152.145 )
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 
 [node name="bg_flowers3" type="Sprite" parent="MainLayer/GrassFront"]
 
 material/material = SubResource( 10 )
 transform/pos = Vector2( -1010.28, -184.568 )
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 flip_h = true
 
 [node name="bg_flowers5" type="Sprite" parent="MainLayer/GrassFront"]
@@ -365,8 +359,21 @@ material/material = SubResource( 11 )
 transform/pos = Vector2( -487.522, -4.38337 )
 transform/rot = -12.8613
 transform/scale = Vector2( 1.48892, 1.48892 )
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 flip_h = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="title_graphic" type="Sprite" parent="CanvasLayer"]
+
+transform/pos = Vector2( 237, 91 )
+transform/scale = Vector2( 0.419922, 0.419922 )
+texture = ExtResource( 10 )
 
 
 [editable path="MainLayer/BalloonPlayer"]
