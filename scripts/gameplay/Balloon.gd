@@ -57,7 +57,7 @@ func _on_AnimationPlayer_finished():
 	if anime.get_current_animation() == 'explode':
 		if not debug or debug_explode:
 			emit_signal('explode')
-			queue_free()
+			#queue_free()
 
 
 func _on_Area2D_mouse_enter():

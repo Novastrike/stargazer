@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://scripts/gameplay/Balloon.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/gameplay/balloon.tex" type="Texture" id=2]
 [ext_resource path="res://assets/textures/gameplay/balloon_normal.tex" type="Texture" id=3]
+[ext_resource path="res://assets/sfx/balloon.smp" type="Sample" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -33,11 +34,20 @@ shader_param/normal = ExtResource( 3 )
 custom_solver_bias = 0.0
 radius = 10.0
 
+[sub_resource type="SampleLibrary" id=8]
+
+samples/balloon = { "db":0.0, "pitch":1.0, "sample":ExtResource( 4 ) }
+
 [sub_resource type="Animation" id=7]
 
-length = 0.1
+length = 1.0
 loop = false
 step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("SamplePlayer2D:play/play")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":2, "values":[ "balloon" ] }
 
 [node name="BalloonBody" type="RigidBody2D" groups=[ "balloon-body" ]]
 
@@ -109,6 +119,17 @@ transform/scale = Vector2( 3.3235, 4.14838 )
 shape = SubResource( 6 )
 trigger = false
 _update_shape_index = 0
+
+[node name="SamplePlayer2D" type="SamplePlayer2D" parent="."]
+
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 2048.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 1
+config/samples = SubResource( 8 )
+config/pitch_random = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
