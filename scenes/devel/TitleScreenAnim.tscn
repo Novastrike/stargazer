@@ -347,10 +347,6 @@ transform/pos = Vector2( 239, 185 )
 
 zoom = Vector2( 1, 1 )
 
-[node name="BasketBody" parent="MainLayer/BalloonPlayer"]
-
-mode = 1
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 layer = 1

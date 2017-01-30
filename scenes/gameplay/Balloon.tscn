@@ -11,7 +11,7 @@ radius = 10.0
 
 [sub_resource type="CanvasItemShader" id=2]
 
-_code = { "fragment":"float fattyness=1.5;\n\nvec2 ruv=(UV-vec2(0.5,1));\nfloat len = length(ruv);\nvec2 dir = normalize(ruv);\n\nlen=pow(len*1.1,fattyness)*0.5;\nruv=len*dir;\nruv = ruv+vec2(0.5,0.5);\n\nvec3 col = texscreen(ruv);\nCOLOR.rgb=col;", "fragment_ofs":0, "light":"", "light_ofs":0, "vertex":"", "vertex_ofs":0 }
+_code = { "fragment":"// It\'s a test, don\'t use this shader in commercial games\nfloat scale=1.5;\n\nvec2 ruv=(UV-vec2(0.5,1));\nfloat len = length(ruv);\nvec2 dir = normalize(ruv);\n\nlen=pow(len*1.1,scale)*0.5;\nruv=len*dir;\nruv = ruv+vec2(0.5,0.5);\n\nvec3 col = texscreen(ruv);\nCOLOR.rgb=col;", "fragment_ofs":0, "light":"", "light_ofs":0, "vertex":"", "vertex_ofs":0 }
 
 [sub_resource type="CanvasItemMaterial" id=3]
 
@@ -67,9 +67,8 @@ modulate = Color( 1, 1, 1, 1 )
 debug = false
 debug_explode = false
 
-[node name="Balloon2" type="Sprite" parent="."]
+[node name="Reflex" type="Sprite" parent="."]
 
-visibility/opacity = 0.8
 material/material = SubResource( 3 )
 transform/scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 2 )
