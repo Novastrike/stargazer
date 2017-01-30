@@ -11,7 +11,7 @@ extents = Vector2( 10, 10 )
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 0.439025, 0, 0, 2.58452, 0, 0 )
+shapes/0/transform = Matrix32( 0.240928, 0, 0, 1.43215, 0.422533, -0.23188 )
 shapes/0/trigger = true
 collision/layers = 1
 collision/mask = 1
@@ -33,12 +33,16 @@ damp_override/angular = -1.0
 
 [node name="Sprite" type="Sprite" parent="."]
 
-transform/scale = Vector2( 0.1, 0.1 )
+transform/scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 240, 0, 40, 140 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-transform/scale = Vector2( 0.439025, 2.58452 )
+visibility/visible = false
+transform/pos = Vector2( 0.422533, -0.23188 )
+transform/scale = Vector2( 0.240928, 1.43215 )
 shape = SubResource( 1 )
 trigger = true
 _update_shape_index = 0

@@ -92,11 +92,11 @@ softness = 0.0
 
 [node name="RopeSegment1" parent="." instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 0, 76 )
+transform/pos = Vector2( 0, 62 )
 
 [node name="Rope1+Rope2" type="PinJoint2D" parent="."]
 
-transform/pos = Vector2( 0, 102 )
+transform/pos = Vector2( 0, 77 )
 node_a = NodePath("../RopeSegment1")
 node_b = NodePath("../RopeSegment2")
 bias/bias = 0.0
@@ -105,11 +105,11 @@ softness = 0.0
 
 [node name="RopeSegment2" parent="." instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 0, 127 )
+transform/pos = Vector2( 0, 89 )
 
 [node name="Rope2+Rope3" type="PinJoint2D" parent="."]
 
-transform/pos = Vector2( 0, 153 )
+transform/pos = Vector2( 0, 103 )
 node_a = NodePath("../RopeSegment2")
 node_b = NodePath("../RopeSegment3")
 bias/bias = 0.0
@@ -118,12 +118,51 @@ softness = 0.0
 
 [node name="RopeSegment3" parent="." instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 0, 178 )
+transform/pos = Vector2( 0, 116 )
 
-[node name="Rope3+Basket" type="PinJoint2D" parent="."]
+[node name="Rope3+Rope4" type="PinJoint2D" parent="."]
 
-transform/pos = Vector2( 0, 202 )
+transform/pos = Vector2( 0, 130 )
 node_a = NodePath("../RopeSegment3")
+node_b = NodePath("../RopeSegment4")
+bias/bias = 0.0
+collision/exclude_nodes = true
+softness = 0.0
+
+[node name="RopeSegment4" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 0, 142 )
+
+[node name="Rope4+Rope5" type="PinJoint2D" parent="."]
+
+transform/pos = Vector2( 0, 154 )
+node_a = NodePath("../RopeSegment4")
+node_b = NodePath("../RopeSegment5")
+bias/bias = 0.0
+collision/exclude_nodes = true
+softness = 0.0
+
+[node name="RopeSegment5" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 0, 168 )
+
+[node name="Rope5+Rope6" type="PinJoint2D" parent="."]
+
+transform/pos = Vector2( 0, 181 )
+node_a = NodePath("../RopeSegment5")
+node_b = NodePath("../RopeSegment6")
+bias/bias = 0.0
+collision/exclude_nodes = true
+softness = 0.0
+
+[node name="RopeSegment6" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 0, 194 )
+
+[node name="Rope6+Basket" type="PinJoint2D" parent="."]
+
+transform/pos = Vector2( 0, 207 )
+node_a = NodePath("../RopeSegment6")
 node_b = NodePath("../BasketBody")
 bias/bias = 0.0
 collision/exclude_nodes = true
@@ -131,7 +170,7 @@ softness = 0.0
 
 [node name="BasketBody" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 0, 271 )
+transform/pos = Vector2( 1, 288 )
 z/z = 1
 
 
