@@ -30,7 +30,7 @@ transform/pos = Vector2( 0, -7 )
 z/z = 1
 modulate = Color( 0.265625, 1, 0, 1 )
 
-[node name="Balloon1+Rope1" type="PinJoint2D" parent="."]
+[node name="Balloon1+Player" type="PinJoint2D" parent="."]
 
 transform/pos = Vector2( 0, 50 )
 node_a = NodePath("../BalloonBody")
@@ -39,7 +39,7 @@ bias/bias = 0.0
 collision/exclude_nodes = true
 softness = 0.0
 
-[node name="Balloon2+Rope1" type="PinJoint2D" parent="."]
+[node name="Balloon2+Player" type="PinJoint2D" parent="."]
 
 transform/pos = Vector2( 0, 50 )
 node_a = NodePath("../BalloonBody2")
@@ -48,7 +48,7 @@ bias/bias = 0.0
 collision/exclude_nodes = true
 softness = 0.0
 
-[node name="Balloon3+Rope1" type="PinJoint2D" parent="."]
+[node name="Balloon3+Player" type="PinJoint2D" parent="."]
 
 transform/pos = Vector2( 0, 50 )
 node_a = NodePath("../BalloonBody3")
@@ -65,8 +65,8 @@ gravity_scale = -14.0
 
 anchor_mode = 1
 rotating = false
-current = false
-zoom = Vector2( 1, 1 )
+current = true
+zoom = Vector2( 2, 2 )
 limit/left = -10000000
 limit/top = -10000000
 limit/right = 10000000
