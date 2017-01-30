@@ -24,7 +24,7 @@ SOFTWARE.
 
 extends RigidBody2D
 
-var speed = 600
+var speed = 700
 
 func _ready():
 	set_fixed_process(true)

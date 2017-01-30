@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=5 format=1]
 
-[ext_resource path="res://assets/textures/gameplay/src/cloud-bg1.png" type="Texture" id=1]
-[ext_resource path="res://scenes/core/TiledSky.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/devel/SpawnerTest.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/gameplay/SpawnerArea.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/core/TiledSky.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/devel/SpawnerTest.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/gameplay/SpawnerArea.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=1]
 
@@ -16,51 +15,10 @@ tracks/0/path = NodePath("CanvasModulate:color")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0, 4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Color( 1, 1, 1, 1 ), Color( 0.578125, 0.248413, 0.248413, 1 ) ] }
-tracks/1/type = "value"
-tracks/1/path = NodePath("ParallaxBackground/ParallaxLayer/CanvasModulate2:color")
-tracks/1/interp = 1
-tracks/1/imported = false
-tracks/1/keys = { "times":FloatArray( 0, 4 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Color( 1, 1, 1, 1 ), Color( 0.578125, 0.248413, 0.248413, 1 ) ] }
 
 [node name="Node2D" type="Node2D"]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-layer = -1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-scroll/offset = Vector2( 0, 0 )
-scroll/base_offset = Vector2( 0, 0 )
-scroll/base_scale = Vector2( 1, 1 )
-scroll/limit_begin = Vector2( 0, 0 )
-scroll/limit_end = Vector2( 0, 0 )
-scroll/ignore_camera_zoom = true
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-
-motion/scale = Vector2( 1, 1 )
-motion/offset = Vector2( 0, 0 )
-motion/mirroring = Vector2( 0, 0 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-
-visibility/visible = false
-texture = ExtResource( 1 )
-centered = false
-region_rect = Rect2( 0, 0, 1536, 1280 )
-
-[node name="CanvasModulate2" type="CanvasModulate" parent="ParallaxBackground/ParallaxLayer"]
-
-color = Color( 0.636719, 0.268616, 0.268616, 1 )
-
-[node name="TiledSky2" parent="ParallaxBackground/ParallaxLayer" instance=ExtResource( 2 )]
-
-visibility/opacity = 0.49
-tile_data = IntArray( -1, 0, -65536, 0, 65535, 0, 0, 0 )
-offset = 1
-
-[node name="TiledSky3" parent="." instance=ExtResource( 2 )]
+[node name="TiledSky3" parent="." instance=ExtResource( 1 )]
 
 visibility/light_mask = 0
 occluder/light_mask = 0
@@ -83,28 +41,30 @@ autoplay = ""
 visibility/visible = false
 color = Color( 0.256248, 0.224304, 0.410156, 1 )
 
-[node name="SpawnerTest" parent="." instance=ExtResource( 3 )]
+[node name="SpawnerTest" parent="." instance=ExtResource( 2 )]
 
 [node name="BalloonBody" parent="SpawnerTest/BalloonPlayer"]
 
 debug = true
-debug_explode = false
 
 [node name="BalloonBody2" parent="SpawnerTest/BalloonPlayer"]
 
 debug = true
-debug_explode = false
 
 [node name="BalloonBody3" parent="SpawnerTest/BalloonPlayer"]
 
 debug = true
-debug_explode = false
+
+[node name="SpawnerArea" parent="SpawnerTest/BalloonPlayer/Player/Camera2D" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -3.8147e-06, -391 )
+y_offset = 100
 
 [node name="Camera2D" type="Camera2D" parent="SpawnerTest/BalloonPlayer/Player"]
 
 anchor_mode = 1
 rotating = false
-current = true
+current = false
 zoom = Vector2( 6, 6 )
 limit/left = -10000000
 limit/top = -10000000
@@ -120,13 +80,9 @@ drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 
-[node name="SpawnerArea" parent="SpawnerTest/BalloonPlayer/Player/Camera2D" instance=ExtResource( 4 )]
+[node name="SpawnerArea" parent="SpawnerTest"]
 
-transform/pos = Vector2( -3.8147e-06, -391 )
-
-[node name="BalloonCamera" parent="SpawnerTest"]
-
-current = false
+y_offset = 100
 
 
 [editable path="SpawnerTest"]

@@ -23,8 +23,9 @@ drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 script/script = ExtResource( 1 )
-debug = true
+target_group = "balloon-player"
 smooth = true
+debug = true
 
 [node name="Tween" type="Tween" parent="."]
 
