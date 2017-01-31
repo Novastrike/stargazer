@@ -66,7 +66,7 @@ samples/star_pass_by_3 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 7 ) }
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 3.15354, 0, 0, 3.17099, 0, 0 )
+shapes/0/transform = Matrix32( 2, 0, 0, 2, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -161,13 +161,14 @@ texture = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 visibility/light_mask = 0
-transform/scale = Vector2( 3.15354, 3.17099 )
+transform/scale = Vector2( 2, 2 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
 [node name="Light2D" type="Light2D" parent="."]
 
+transform/pos = Vector2( -0.237823, -0.237823 )
 enabled = true
 editor_only = false
 texture = ExtResource( 4 )

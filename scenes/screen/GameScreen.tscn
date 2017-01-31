@@ -417,7 +417,15 @@ flip_h = true
 
 transform/pos = Vector2( 239, 185 )
 
+[node name="BalloonBody" parent="MainLayer/BalloonPlayer"]
+
+modulate = Color( 0.929412, 0.12549, 0.141176, 1 )
+
 [node name="BalloonBody2" parent="MainLayer/BalloonPlayer"]
+
+modulate = Color( 0.129412, 0.741176, 0.172549, 1 )
+
+[node name="BalloonBody3" parent="MainLayer/BalloonPlayer"]
 
 modulate = Color( 0.156863, 0.352941, 0.858824, 1 )
 
