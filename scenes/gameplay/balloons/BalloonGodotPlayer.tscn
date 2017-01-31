@@ -1,0 +1,171 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://scripts/gameplay/BalloonPlayer.gd" type="Script" id=1]
+[ext_resource path="res://scenes/gameplay/balloons/BalloonGodot.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/gameplay/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/gameplay/Rope.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/gameplay/Basket.tscn" type="PackedScene" id=5]
+
+[node name="BalloonPlayer" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="BalloonGodot" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 40, 48 )
+transform/rot = -87.7452
+
+[node name="BalloonGodot2" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( -40, 46 )
+transform/rot = 85.8694
+
+[node name="BalloonGodot3" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 0, 9 )
+
+[node name="Balloon1+Player" type="PinJoint2D" parent="."]
+
+transform/pos = Vector2( 0, 50 )
+node_a = NodePath("../BalloonGodot")
+node_b = NodePath("../Player")
+bias/bias = 0.0
+collision/exclude_nodes = true
+softness = 0.0
+
+[node name="Balloon2+Player" type="PinJoint2D" parent="."]
+
+transform/pos = Vector2( 0, 50 )
+node_a = NodePath("../BalloonGodot2")
+node_b = NodePath("../Player")
+bias/bias = 0.0
+collision/exclude_nodes = true
+softness = 0.0
+
+[node name="Balloon3+Player" type="PinJoint2D" parent="."]
+
+transform/pos = Vector2( 0, 50 )
+node_a = NodePath("../BalloonGodot3")
+node_b = NodePath("../Player")
+bias/bias = 0.0
+collision/exclude_nodes = true
+softness = 0.0
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+
+editor/display_folded = true
+visibility/visible = false
+gravity_scale = -14.0
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 2, 2 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+limit/smoothed = false
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = true
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
+
+[node name="Player+Rope1" type="PinJoint2D" parent="."]
+
+transform/pos = Vector2( 0, 49 )
+node_a = NodePath("../Player")
+node_b = NodePath("../RopeSegment1")
+bias/bias = 0.0
+collision/exclude_nodes = true
+softness = 0.0
+
+[node name="RopeSegment1" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 0, 62 )
+
+[node name="Rope1+Rope2" type="PinJoint2D" parent="."]
+
+transform/pos = Vector2( 0, 77 )
+node_a = NodePath("../RopeSegment1")
+node_b = NodePath("../RopeSegment2")
+bias/bias = 0.0
+collision/exclude_nodes = true
+softness = 0.0
+
+[node name="RopeSegment2" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 0, 89 )
+
+[node name="Rope2+Rope3" type="PinJoint2D" parent="."]
+
+transform/pos = Vector2( 0, 103 )
+node_a = NodePath("../RopeSegment2")
+node_b = NodePath("../RopeSegment3")
+bias/bias = 0.0
+collision/exclude_nodes = true
+softness = 0.0
+
+[node name="RopeSegment3" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 0, 116 )
+
+[node name="Rope3+Rope4" type="PinJoint2D" parent="."]
+
+transform/pos = Vector2( 0, 130 )
+node_a = NodePath("../RopeSegment3")
+node_b = NodePath("../RopeSegment4")
+bias/bias = 0.0
+collision/exclude_nodes = true
+softness = 0.0
+
+[node name="RopeSegment4" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 0, 142 )
+
+[node name="Rope4+Rope5" type="PinJoint2D" parent="."]
+
+transform/pos = Vector2( 0, 154 )
+node_a = NodePath("../RopeSegment4")
+node_b = NodePath("../RopeSegment5")
+bias/bias = 0.0
+collision/exclude_nodes = true
+softness = 0.0
+
+[node name="RopeSegment5" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 0, 168 )
+
+[node name="Rope5+Rope6" type="PinJoint2D" parent="."]
+
+transform/pos = Vector2( 0, 181 )
+node_a = NodePath("../RopeSegment5")
+node_b = NodePath("../RopeSegment6")
+bias/bias = 0.0
+collision/exclude_nodes = true
+softness = 0.0
+
+[node name="RopeSegment6" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 0, 194 )
+
+[node name="Rope6+Basket" type="PinJoint2D" parent="."]
+
+transform/pos = Vector2( 0, 207 )
+node_a = NodePath("../RopeSegment6")
+node_b = NodePath("../BasketBody")
+bias/bias = 0.0
+collision/exclude_nodes = true
+softness = 0.0
+
+[node name="BasketBody" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1, 283 )
+
+

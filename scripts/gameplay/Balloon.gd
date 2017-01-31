@@ -41,6 +41,8 @@ func _set_sprite_modulate(color):
 	if has_node("Balloon"):
 		modulate = color
 		get_node("Balloon").set_modulate(modulate)
+	if has_node("Particles2D"):
+		get_node("Particles2D").set_color(modulate)
 
 
 func explode():
