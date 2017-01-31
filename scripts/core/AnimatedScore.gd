@@ -59,6 +59,9 @@ func interpolate_from_to(from, to):
 	tween.interpolate_property(self, 'value', from, to, 1, 0, 0)
 	tween.start()
 
+func interpolate_to(val):
+	interpolate_from_to(value, val)
+
 func add(val):
 	interpolate_from_to(value, value+val)
 	

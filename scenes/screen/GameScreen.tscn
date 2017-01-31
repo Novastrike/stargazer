@@ -417,17 +417,9 @@ flip_h = true
 
 transform/pos = Vector2( 239, 185 )
 
-[node name="BalloonBody" parent="MainLayer/BalloonPlayer"]
-
-modulate = Color( 0.682353, 0.12549, 0.682353, 1 )
-
 [node name="BalloonBody2" parent="MainLayer/BalloonPlayer"]
 
 modulate = Color( 0.156863, 0.352941, 0.858824, 1 )
-
-[node name="BalloonBody3" parent="MainLayer/BalloonPlayer"]
-
-modulate = Color( 0.901961, 0.909804, 0.176471, 1 )
 
 [node name="Camera2D" parent="MainLayer/BalloonPlayer/Player"]
 
@@ -554,10 +546,6 @@ transform/scale = Vector2( 0.419922, 0.419922 )
 texture = ExtResource( 18 )
 
 [node name="GameHUD" parent="HUD" instance=ExtResource( 19 )]
-
-[node name="MiniTuto" parent="HUD/GameHUD"]
-
-visibility/opacity = 0.0
 
 [connection signal="finished" from="HUD/GameHUD/AnimationPlayer" to="." method="_on_AnimationPlayer_finished"]
 
