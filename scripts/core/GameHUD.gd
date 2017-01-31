@@ -9,7 +9,7 @@ func handle_score_up(score):
 
 func handle_combo_up(combo):
 	if combo > 1:
-		get_node("Combo").interpolate_to(combo)
+		get_node("Combo").interpolate_to(combo-1)
 
 func handle_combo_break(score):
 	get_node("Combo").interpolate_to(0)

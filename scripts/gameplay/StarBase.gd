@@ -44,6 +44,7 @@ func _fixed_process(delta):
 	if cameras.size() > 0:
 		if abs(cameras[0].get_global_pos().y - get_global_pos().y) >= cameras[0].get_zoom().y * get_viewport().get_rect().size.height+50:
 			print('Out of screen')
+			Score.combo_break()
 			emit_signal('out_of_screen')
 			destruct()
 
