@@ -1,22 +1,23 @@
-[gd_scene load_steps=28 format=1]
+[gd_scene load_steps=29 format=1]
 
 [ext_resource path="res://scripts/core/GameScreen.gd" type="Script" id=1]
 [ext_resource path="res://scenes/core/AudioFade.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/music/wind_loop.ogg" type="AudioStream" id=3]
 [ext_resource path="res://assets/music/starphaser_loop.ogg" type="AudioStream" id=4]
 [ext_resource path="res://assets/textures/scene_items/sky_bg.tex" type="Texture" id=5]
-[ext_resource path="res://assets/textures/scene_items/sunrise_cloud.tex" type="Texture" id=6]
-[ext_resource path="res://assets/textures/scene_items/cloud_bg.tex" type="Texture" id=7]
-[ext_resource path="res://assets/textures/scene_items/grass_tuft.tex" type="Texture" id=8]
-[ext_resource path="res://assets/textures/scene_items/ground.tex" type="Texture" id=9]
-[ext_resource path="res://assets/textures/scene_items/grass_tuft_2.tex" type="Texture" id=10]
-[ext_resource path="res://assets/shaders/simple_wind_shader.tres" type="CanvasItemMaterial" id=11]
-[ext_resource path="res://assets/textures/scene_items/bg_flowers.tex" type="Texture" id=12]
-[ext_resource path="res://scenes/gameplay/BalloonPlayer.tscn" type="PackedScene" id=13]
-[ext_resource path="res://assets/textures/scene_items/title_graphic.tex" type="Texture" id=14]
-[ext_resource path="res://scenes/screen/GameHUD.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/textures/scene_items/sky_bg2.tex" type="Texture" id=6]
+[ext_resource path="res://assets/textures/scene_items/sunrise_cloud.tex" type="Texture" id=7]
+[ext_resource path="res://assets/textures/scene_items/cloud_bg.tex" type="Texture" id=8]
+[ext_resource path="res://assets/textures/scene_items/grass_tuft.tex" type="Texture" id=9]
+[ext_resource path="res://assets/textures/scene_items/ground.tex" type="Texture" id=10]
+[ext_resource path="res://assets/textures/scene_items/grass_tuft_2.tex" type="Texture" id=11]
+[ext_resource path="res://assets/shaders/simple_wind_shader.tres" type="CanvasItemMaterial" id=12]
+[ext_resource path="res://assets/textures/scene_items/bg_flowers.tex" type="Texture" id=13]
+[ext_resource path="res://scenes/gameplay/BalloonPlayer.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/textures/scene_items/title_graphic.tex" type="Texture" id=15]
+[ext_resource path="res://scenes/screen/GameHUD.tscn" type="PackedScene" id=16]
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=1]
 
 resource/name = "init"
 length = 1.0
@@ -38,9 +39,8 @@ tracks/2/interp = 1
 tracks/2/imported = false
 tracks/2/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":0, "values":[ Vector2( 1, 1 ) ] }
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=2]
 
-resource/name = "start_game"
 length = 10.0
 loop = false
 step = 0.1
@@ -65,7 +65,7 @@ tracks/3/interp = 1
 tracks/3/imported = false
 tracks/3/keys = { "times":FloatArray( 6 ), "transitions":FloatArray( 1 ), "update":2, "values":[ "start" ] }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 
 length = 240.0
 loop = true
@@ -76,7 +76,7 @@ tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0, 240 ), "transitions":FloatArray( 1, 0 ), "update":0, "values":[ Vector2( 988, 110 ), Vector2( -656, 110 ) ] }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 
 length = 120.0
 loop = true
@@ -87,50 +87,50 @@ tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0, 120 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( -284, 177 ), Vector2( -1307, 177 ) ] }
 
-[sub_resource type="CanvasItemShaderGraph" id=4]
+[sub_resource type="CanvasItemShaderGraph" id=5]
 
 _code = { "fragment":"", "fragment_ofs":0, "light":"", "light_ofs":0, "vertex":"vec3 nd1sl0=vec3(SRC_VERTEX,0);\nfloat nd2sl0=nd1sl0.x;\nfloat nd2sl1=nd1sl0.y;\nfloat nd2sl2=nd1sl0.z;\nuniform float Scalar=5;\nfloat nd6sl0=Scalar;\nfloat nd4sl0=TIME;\nfloat nd5sl0=nd6sl0*nd4sl0;\nfloat nd7sl0=sin(nd5sl0);\nfloat nd8sl0=nd2sl0+nd7sl0;\nfloat nd3sl2def=0;\nvec3 nd3sl0=vec3(nd8sl0,nd2sl1,nd3sl2def);\nVERTEX=nd3sl0.xy;\n", "vertex_ofs":0 }
 _data = { "shaders":[ [ 0, 33, Vector2( 1100, 20 ), null, null, [ 0, 3, 0 ], 1, 0, Vector2( 50, 40 ), null, null, [  ], 2, 18, Vector2( 300, 40 ), null, null, [ 0, 1, 0, 2147483647, 0, null ], 3, 19, Vector2( 800, 40 ), null, null, [ 0, 8, 0, 1, 2, 1, 2147483647, 0, null, 2147483647, 1, null, 2147483647, 2, null ], 4, 5, Vector2( 200, 280 ), null, null, [  ], 5, 7, Vector2( 380, 220 ), 2, null, [ 0, 6, 0, 1, 4, 0, 2147483647, 0, null, 2147483647, 1, null ], 6, 26, Vector2( 200, 180 ), "Scalar", 5.0, [  ], 7, 14, Vector2( 500, 200 ), 0, null, [ 0, 5, 0, 2147483647, 0, null ], 8, 7, Vector2( 660, 140 ), 0, null, [ 0, 2, 0, 1, 7, 0, 2147483647, 0, null, 2147483647, 1, null ] ], [ 0, 33, Vector2( 350, 40 ), null, null, [  ], 1, 0, Vector2( 50, 40 ), null, null, [  ] ], [ 0, 33, Vector2( 350, 40 ), null, null, [  ], 1, 0, Vector2( 50, 40 ), null, null, [  ] ] ] }
 
-[sub_resource type="CanvasItemMaterial" id=5]
-
-shader/shader = SubResource( 4 )
-shader/shading_mode = 0
-shader_param/Scalar = 4.0
-
 [sub_resource type="CanvasItemMaterial" id=6]
 
-shader/shader = SubResource( 4 )
+shader/shader = SubResource( 5 )
 shader/shading_mode = 0
 shader_param/Scalar = 4.0
 
 [sub_resource type="CanvasItemMaterial" id=7]
 
-shader/shader = SubResource( 4 )
+shader/shader = SubResource( 5 )
 shader/shading_mode = 0
-shader_param/Scalar = 10.0
+shader_param/Scalar = 4.0
 
 [sub_resource type="CanvasItemMaterial" id=8]
 
-shader/shader = SubResource( 4 )
+shader/shader = SubResource( 5 )
 shader/shading_mode = 0
-shader_param/Scalar = 8.0
+shader_param/Scalar = 10.0
 
 [sub_resource type="CanvasItemMaterial" id=9]
 
-shader/shader = SubResource( 4 )
+shader/shader = SubResource( 5 )
 shader/shading_mode = 0
 shader_param/Scalar = 8.0
 
 [sub_resource type="CanvasItemMaterial" id=10]
 
-shader/shader = SubResource( 4 )
+shader/shader = SubResource( 5 )
 shader/shading_mode = 0
-shader_param/Scalar = 9.0
+shader_param/Scalar = 8.0
 
 [sub_resource type="CanvasItemMaterial" id=11]
 
-shader/shader = SubResource( 4 )
+shader/shader = SubResource( 5 )
+shader/shading_mode = 0
+shader_param/Scalar = 9.0
+
+[sub_resource type="CanvasItemMaterial" id=12]
+
+shader/shader = SubResource( 5 )
 shader/shading_mode = 0
 shader_param/Scalar = 10.0
 
@@ -143,8 +143,8 @@ script/script = ExtResource( 1 )
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/init = SubResource( 12 )
-anims/start_game = SubResource( 1 )
+anims/init = SubResource( 1 )
+anims/start_game = SubResource( 2 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -184,25 +184,37 @@ motion/mirroring = Vector2( 0, 0 )
 transform/pos = Vector2( 247.813, 107.813 )
 transform/scale = Vector2( 0.835572, 0.835572 )
 texture = ExtResource( 5 )
+region = true
+region_rect = Rect2( 0, 0, 5000, 1024 )
 
 [node name="sky_bg2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+transform/pos = Vector2( 247.813, -747.2 )
+transform/scale = Vector2( 0.835572, 0.835572 )
+texture = ExtResource( 6 )
+region = true
+region_rect = Rect2( 0, 0, 5000, 1024 )
+
+[node name="_sky_bg" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 
 transform/pos = Vector2( 247.813, 875.813 )
 transform/scale = Vector2( 0.835572, 0.835572 )
 texture = ExtResource( 5 )
 flip_v = true
+region = true
+region_rect = Rect2( 0, -1, 2048, 1024 )
 
 [node name="sunrise_cloud" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 
 transform/pos = Vector2( 988, 110 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/ParallaxLayer/sunrise_cloud"]
 
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/SunriseCloudAnim = SubResource( 2 )
+anims/SunriseCloudAnim = SubResource( 3 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -210,6 +222,7 @@ autoplay = "SunriseCloudAnim"
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 
+editor/display_folded = true
 motion/scale = Vector2( 0.1, 0.1 )
 motion/offset = Vector2( 0, 0 )
 motion/mirroring = Vector2( 0, 0 )
@@ -217,7 +230,7 @@ motion/mirroring = Vector2( 0, 0 )
 [node name="white_cloud" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
 
 transform/pos = Vector2( -284, 177 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 centered = false
 region = true
 region_rect = Rect2( 5, 5, 2048, 512 )
@@ -227,13 +240,15 @@ region_rect = Rect2( 5, 5, 2048, 512 )
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/CloudTitleAnim = SubResource( 3 )
+anims/CloudTitleAnim = SubResource( 4 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = "CloudTitleAnim"
 
 [node name="MainLayer" type="Node2D" parent="."]
+
+editor/display_folded = true
 
 [node name="GrassBack" type="Node2D" parent="MainLayer"]
 
@@ -245,21 +260,21 @@ transform/scale = Vector2( 0.44422, 0.44422 )
 [node name="grass_tuft5" type="Sprite" parent="MainLayer/GrassBack"]
 
 visibility/opacity = 0.6
-material/material = SubResource( 5 )
+material/material = SubResource( 6 )
 transform/pos = Vector2( -986.145, -355.215 )
 transform/rot = -6.15568
 transform/scale = Vector2( 0.68515, 0.68515 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 modulate = Color( 0.286182, 0.143188, 0.796875, 1 )
 
 [node name="grass_tuft6" type="Sprite" parent="MainLayer/GrassBack"]
 
 visibility/opacity = 0.6
-material/material = SubResource( 6 )
+material/material = SubResource( 7 )
 transform/pos = Vector2( -526.124, -300.08 )
 transform/rot = -6.15568
 transform/scale = Vector2( 0.68515, 0.68515 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 flip_h = true
 modulate = Color( 0.286182, 0.143188, 0.796875, 1 )
 
@@ -267,7 +282,7 @@ modulate = Color( 0.286182, 0.143188, 0.796875, 1 )
 
 transform/pos = Vector2( 251.19, 538.404 )
 transform/scale = Vector2( 0.835572, 0.874104 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 
 [node name="SmallGrass" type="Node2D" parent="MainLayer"]
 
@@ -280,7 +295,7 @@ z/z = 1
 transform/pos = Vector2( -272.555, -78.441 )
 transform/rot = 6.18468
 transform/scale = Vector2( 0.0597345, 0.0597345 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 flip_h = true
 modulate = Color( 0.796875, 0.796875, 0.796875, 1 )
 region = true
@@ -291,7 +306,7 @@ region_rect = Rect2( 0, 0, 900, 200 )
 transform/pos = Vector2( -383.373, -78.1939 )
 transform/rot = -7.62422
 transform/scale = Vector2( 0.0597345, 0.0597345 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 modulate = Color( 0.796875, 0.796875, 0.796875, 1 )
 region = true
 region_rect = Rect2( 0, 0, 800, 200 )
@@ -300,7 +315,7 @@ region_rect = Rect2( 0, 0, 800, 200 )
 
 transform/pos = Vector2( -328.863, -75.2848 )
 transform/scale = Vector2( 0.08529, 0.0597345 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 flip_h = true
 modulate = Color( 0.796875, 0.796875, 0.796875, 1 )
 region = true
@@ -315,90 +330,91 @@ transform/scale = Vector2( 0.44422, 0.44422 )
 
 [node name="grass_tuft3" type="Sprite" parent="MainLayer/GrassFront"]
 
-material/material = ExtResource( 11 )
+material/material = ExtResource( 12 )
 transform/pos = Vector2( -21.4455, -180.091 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 flip_h = true
 
 [node name="bg_flowers4" type="Sprite" parent="MainLayer/GrassFront"]
 
-material/material = SubResource( 7 )
+material/material = SubResource( 8 )
 transform/pos = Vector2( -226.162, -326.701 )
 transform/rot = 6.81639
 transform/scale = Vector2( 0.614421, 0.614421 )
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 flip_h = true
 
 [node name="grass_tuft8" type="Sprite" parent="MainLayer/GrassFront"]
 
-material/material = ExtResource( 11 )
-texture = ExtResource( 8 )
+material/material = ExtResource( 12 )
+texture = ExtResource( 9 )
 flip_h = true
 
 [node name="grass_tuft4" type="Sprite" parent="MainLayer/GrassFront"]
 
-material/material = ExtResource( 11 )
+material/material = ExtResource( 12 )
 transform/pos = Vector2( -1406.24, -332.016 )
 transform/rot = -17.6572
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 flip_h = true
 
 [node name="bg_flowers2" type="Sprite" parent="MainLayer/GrassFront"]
 
-material/material = SubResource( 8 )
+material/material = SubResource( 9 )
 transform/pos = Vector2( -1161.67, -426.729 )
 transform/rot = -9.38129
 transform/scale = Vector2( 0.614421, 0.614421 )
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 
 [node name="grass_tuft7" type="Sprite" parent="MainLayer/GrassFront"]
 
-material/material = ExtResource( 11 )
+material/material = ExtResource( 12 )
 transform/pos = Vector2( -1571.01, -192.442 )
 transform/rot = -17.6572
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 flip_h = true
 
 [node name="grass_tuft" type="Sprite" parent="MainLayer/GrassFront"]
 
-material/material = ExtResource( 11 )
+material/material = ExtResource( 12 )
 transform/pos = Vector2( -1012.38, -19.3785 )
 transform/rot = -6.15568
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="grass_tuft2" type="Sprite" parent="MainLayer/GrassFront"]
 
-material/material = ExtResource( 11 )
+material/material = ExtResource( 12 )
 transform/pos = Vector2( -496.223, 9.65991 )
 transform/rot = -6.15568
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 flip_h = true
 
 [node name="bg_flowers" type="Sprite" parent="MainLayer/GrassFront"]
 
-material/material = SubResource( 9 )
+material/material = SubResource( 10 )
 transform/pos = Vector2( -458.961, -152.145 )
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 
 [node name="bg_flowers3" type="Sprite" parent="MainLayer/GrassFront"]
 
-material/material = SubResource( 10 )
+material/material = SubResource( 11 )
 transform/pos = Vector2( -1010.28, -184.568 )
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 flip_h = true
 
 [node name="bg_flowers5" type="Sprite" parent="MainLayer/GrassFront"]
 
 visibility/opacity = 0.65
-material/material = SubResource( 11 )
+material/material = SubResource( 12 )
 transform/pos = Vector2( -487.522, -4.38337 )
 transform/rot = -12.8613
 transform/scale = Vector2( 1.48892, 1.48892 )
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 flip_h = true
 
-[node name="BalloonPlayer" parent="MainLayer" instance=ExtResource( 13 )]
+[node name="BalloonPlayer" parent="MainLayer" instance=ExtResource( 14 )]
 
+editor/display_folded = true
 transform/pos = Vector2( 239, 185 )
 
 [node name="BalloonBody" parent="MainLayer/BalloonPlayer"]
@@ -407,18 +423,111 @@ modulate = Color( 0.156863, 0.352941, 0.858824, 1 )
 
 [node name="BalloonBody2" parent="MainLayer/BalloonPlayer"]
 
-modulate = Color( 0.129412, 0.741176, 0.172549, 1 )
+modulate = Color( 0.156863, 0.352941, 0.858824, 1 )
 
 [node name="BalloonBody3" parent="MainLayer/BalloonPlayer"]
 
-modulate = Color( 0.156863, 0.352941, 0.858824, 1 )
+modulate = Color( 0.682353, 0.12549, 0.682353, 1 )
 
 [node name="Camera2D" parent="MainLayer/BalloonPlayer/Player"]
 
 offset = Vector2( 0, 100 )
 
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+
+layer = 0
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+scroll/offset = Vector2( 0, 0 )
+scroll/base_offset = Vector2( 0, 0 )
+scroll/base_scale = Vector2( 1, 1 )
+scroll/limit_begin = Vector2( 0, 0 )
+scroll/limit_end = Vector2( 0, 0 )
+scroll/ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
+
+transform/pos = Vector2( 0, -3040 )
+motion/scale = Vector2( 4, 4 )
+motion/offset = Vector2( 0, 0 )
+motion/mirroring = Vector2( 0, 0 )
+
+[node name="sky_bg" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
+
+visibility/visible = false
+transform/pos = Vector2( 247.813, 107.813 )
+transform/scale = Vector2( 0.835572, 0.835572 )
+texture = ExtResource( 5 )
+region = true
+region_rect = Rect2( 0, 0, 5000, 1024 )
+
+[node name="sky_bg2" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
+
+visibility/visible = false
+transform/pos = Vector2( 247.813, -747.2 )
+transform/scale = Vector2( 0.835572, 0.835572 )
+texture = ExtResource( 6 )
+region = true
+region_rect = Rect2( 0, 0, 5000, 1024 )
+
+[node name="_sky_bg" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
+
+visibility/visible = false
+transform/pos = Vector2( 247.813, 875.813 )
+transform/scale = Vector2( 0.835572, 0.835572 )
+texture = ExtResource( 5 )
+flip_v = true
+region = true
+region_rect = Rect2( 0, -1, 2048, 1024 )
+
+[node name="sunrise_cloud" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
+
+transform/pos = Vector2( 360.464, 89 )
+transform/scale = Vector2( 5, 10.3553 )
+texture = ExtResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground2/ParallaxLayer/sunrise_cloud"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/SunriseCloudAnim = SubResource( 3 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "SunriseCloudAnim"
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground2"]
+
+editor/display_folded = true
+visibility/visible = false
+motion/scale = Vector2( 0.1, 0.1 )
+motion/offset = Vector2( 0, 0 )
+motion/mirroring = Vector2( 0, 0 )
+
+[node name="white_cloud" type="Sprite" parent="ParallaxBackground2/ParallaxLayer2"]
+
+transform/pos = Vector2( -284, 177 )
+texture = ExtResource( 8 )
+centered = false
+region = true
+region_rect = Rect2( 5, 5, 2048, 512 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground2/ParallaxLayer2/white_cloud"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/CloudTitleAnim = SubResource( 4 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "CloudTitleAnim"
+
 [node name="HUD" type="CanvasLayer" parent="."]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -428,9 +537,9 @@ scale = Vector2( 1, 1 )
 
 transform/pos = Vector2( 237, 91 )
 transform/scale = Vector2( 0.419922, 0.419922 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 
-[node name="GameHUD" parent="HUD" instance=ExtResource( 15 )]
+[node name="GameHUD" parent="HUD" instance=ExtResource( 16 )]
 
 [node name="MiniTuto" parent="HUD/GameHUD"]
 
