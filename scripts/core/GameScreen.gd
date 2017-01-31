@@ -1,5 +1,6 @@
 extends Node2D
 
+signal game_over
 
 func _ready():
 	print(OS.get_cmdline_args())

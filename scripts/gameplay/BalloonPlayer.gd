@@ -24,7 +24,10 @@ SOFTWARE.
 
 extends Node2D
 
+signal no_player
+
 var random_balloon
+var balloon_count = 3
 
 func _ready():
 	get_node("BasketBody").set_mode(RigidBody2D.MODE_STATIC)
@@ -39,12 +42,20 @@ func _ready():
 	for balloon in balloons:
 		if not 'front-balloon' in balloon.get_groups():
 			balloon.connect('explode', self, '_on_balloon_explode')
+			
 
 func unlock():
 	get_node("BasketBody").set_mode(RigidBody2D.MODE_RIGID)
 
 func _on_balloon_explode():
+	balloon_count -= 1
 	var front_balloon = get_tree().get_nodes_in_group('front-balloon')
 	if front_balloon.size() > 0:
 		front_balloon[0].set_collision_mask(1)
 		front_balloon[0].set_layer_mask(1)
+	print('P COUNT: ', balloon_count)
+	if balloon_count <= 1:
+		get_node("Player").set_mode(RigidBody2D.MODE_STATIC)
+		get_node("Player+Rope1").queue_free()
+		emit_signal('no_player')
+		
