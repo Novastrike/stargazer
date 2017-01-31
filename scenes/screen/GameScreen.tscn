@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=1]
+[gd_scene load_steps=32 format=1]
 
 [ext_resource path="res://scripts/core/GameScreen.gd" type="Script" id=1]
 [ext_resource path="res://scenes/core/AudioFade.tscn" type="PackedScene" id=2]
@@ -14,8 +14,11 @@
 [ext_resource path="res://assets/shaders/simple_wind_shader.tres" type="CanvasItemMaterial" id=12]
 [ext_resource path="res://assets/textures/scene_items/bg_flowers.tex" type="Texture" id=13]
 [ext_resource path="res://scenes/gameplay/BalloonPlayer.tscn" type="PackedScene" id=14]
-[ext_resource path="res://assets/textures/scene_items/title_graphic.tex" type="Texture" id=15]
-[ext_resource path="res://scenes/screen/GameHUD.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/gameplay/SpawnerArea.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/gameplay/SpawnerTimer.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/gameplay/StarBase.tscn" type="PackedScene" id=17]
+[ext_resource path="res://assets/textures/scene_items/title_graphic.tex" type="Texture" id=18]
+[ext_resource path="res://scenes/screen/GameHUD.tscn" type="PackedScene" id=19]
 
 [sub_resource type="Animation" id=1]
 
@@ -248,8 +251,6 @@ autoplay = "CloudTitleAnim"
 
 [node name="MainLayer" type="Node2D" parent="."]
 
-editor/display_folded = true
-
 [node name="GrassBack" type="Node2D" parent="MainLayer"]
 
 editor/display_folded = true
@@ -433,8 +434,20 @@ modulate = Color( 0.682353, 0.12549, 0.682353, 1 )
 
 offset = Vector2( 0, 100 )
 
+[node name="SpawnerArea" parent="MainLayer" instance=ExtResource( 15 )]
+
+test_scene = null
+
+[node name="SpawnerTimer" parent="MainLayer" instance=ExtResource( 16 )]
+
+object_scene = ExtResource( 17 )
+spawner_area = "spawner-area"
+spawn = false
+debug = false
+
 [node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
 
+editor/display_folded = true
 layer = 0
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -527,7 +540,6 @@ autoplay = "CloudTitleAnim"
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -537,13 +549,13 @@ scale = Vector2( 1, 1 )
 
 transform/pos = Vector2( 237, 91 )
 transform/scale = Vector2( 0.419922, 0.419922 )
-texture = ExtResource( 15 )
+texture = ExtResource( 18 )
 
-[node name="GameHUD" parent="HUD" instance=ExtResource( 16 )]
-
-[node name="MiniTuto" parent="HUD/GameHUD"]
+[node name="GameHUD" parent="HUD" instance=ExtResource( 19 )]
 
 visibility/opacity = 0.0
+
+[connection signal="finished" from="HUD/GameHUD/AnimationPlayer" to="." method="_on_AnimationPlayer_finished"]
 
 
 [editable path="MainLayer/BalloonPlayer"]
