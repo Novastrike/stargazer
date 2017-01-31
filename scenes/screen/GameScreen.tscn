@@ -419,11 +419,11 @@ transform/pos = Vector2( 239, 185 )
 
 [node name="BalloonBody" parent="MainLayer/BalloonPlayer"]
 
-modulate = Color( 0.129412, 0.741176, 0.172549, 1 )
+modulate = Color( 0.929412, 0.12549, 0.141176, 1 )
 
 [node name="BalloonBody2" parent="MainLayer/BalloonPlayer"]
 
-modulate = Color( 0.682353, 0.12549, 0.682353, 1 )
+modulate = Color( 0.929412, 0.12549, 0.141176, 1 )
 
 [node name="BalloonBody3" parent="MainLayer/BalloonPlayer"]
 
@@ -437,6 +437,7 @@ zoom = Vector2( 1.5, 1.5 )
 [node name="SpawnerArea" parent="MainLayer" instance=ExtResource( 15 )]
 
 test_scene = null
+y_offset = 1000
 
 [node name="SpawnerTimer" parent="MainLayer" instance=ExtResource( 16 )]
 

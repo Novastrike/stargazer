@@ -41,6 +41,12 @@ func spawn_at(node, pos):
 		spawn_box[0].add_child(node)
 		#node.reset()
 		node.set_global_pos(pos)
+		# diagonal impulse don't works
+		#var impulse = Vector2(50, 0)
+		#if pos.x >= get_viewport().get_rect().size.x*get_camera_zoom().x/2:
+		#	impulse.x *= -1
+		#node.apply_impulse(Vector2(1, 0), impulse)
+
 
 func spawn_random(node):
 	randomize()
@@ -69,7 +75,7 @@ func x_random():
 func y_random():
 	var player = get_player_pos()
 	if player != null:
-		return (player.y - y_offset) - get_viewport().get_rect().size.y * get_camera_zoom().y
+		return (player.y - (y_offset*2)) - get_viewport().get_rect().size.y * get_camera_zoom().y
 	return 0
 
 func _on_TimerTest_timeout():
