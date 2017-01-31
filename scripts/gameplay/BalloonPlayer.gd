@@ -27,6 +27,7 @@ extends Node2D
 var random_balloon
 
 func _ready():
+	get_node("BasketBody").set_mode(RigidBody2D.MODE_STATIC)
 	var balloons = get_tree().get_nodes_in_group('balloon-body')
 	randomize()
 	random_balloon = balloons[int(rand_range(0, balloons.size()))]
@@ -38,6 +39,9 @@ func _ready():
 	for balloon in balloons:
 		if not 'front-balloon' in balloon.get_groups():
 			balloon.connect('explode', self, '_on_balloon_explode')
+
+func unlock():
+	get_node("BasketBody").set_mode(RigidBody2D.MODE_RIGID)
 
 func _on_balloon_explode():
 	var front_balloon = get_tree().get_nodes_in_group('front-balloon')

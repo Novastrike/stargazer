@@ -15,20 +15,19 @@ script/script = ExtResource( 1 )
 transform/pos = Vector2( 42.7646, 48.1343 )
 transform/rot = -88.4341
 z/z = 1
-modulate = Color( 0.62616, 0.0234375, 1, 1 )
+modulate = Color( 0.682353, 0.12549, 0.682353, 1 )
 
 [node name="BalloonBody2" parent="." instance=ExtResource( 2 )]
 
 transform/pos = Vector2( -41.7839, 52.1409 )
 transform/rot = 93.3458
 z/z = 1
-modulate = Color( 0.21875, 0.21875, 0.21875, 1 )
+modulate = Color( 0.929412, 0.12549, 0.141176, 1 )
 
 [node name="BalloonBody3" parent="." instance=ExtResource( 2 )]
 
 transform/pos = Vector2( 0, 7 )
 z/z = 1
-modulate = Color( 0.265625, 1, 0, 1 )
 
 [node name="Balloon1+Player" type="PinJoint2D" parent="."]
 
@@ -67,7 +66,7 @@ gravity_scale = -14.0
 anchor_mode = 1
 rotating = false
 current = true
-zoom = Vector2( 2, 2 )
+zoom = Vector2( 1, 1 )
 limit/left = -10000000
 limit/top = -10000000
 limit/right = 10000000
