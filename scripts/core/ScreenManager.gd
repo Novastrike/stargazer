@@ -36,7 +36,3 @@ func change_scene(scene_path):
 func _on_scene_end(next):
 	print(next)
 	change_scene(next)
-
-
-func _on_SceneBase_end( next ):
-	_on_scene_end(next)

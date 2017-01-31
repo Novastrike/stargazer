@@ -11,26 +11,26 @@
 custom_solver_bias = 0.0
 radius = 10.0
 
-[sub_resource type="CanvasItemShader" id=19]
+[sub_resource type="CanvasItemShader" id=2]
 
 _code = { "fragment":"uniform texture normal;\n//normal maps expect Y-up, but 2D is Y-down, so must mirror this.\nNORMALMAP = tex(normal,UV).rgb * vec3(2.0,-2.0,1.0) - vec3(1.0,-1.0,0.0);", "fragment_ofs":0, "light":"", "light_ofs":0, "vertex":"", "vertex_ofs":0 }
 
-[sub_resource type="CanvasItemMaterial" id=20]
+[sub_resource type="CanvasItemMaterial" id=3]
 
-shader/shader = SubResource( 19 )
+shader/shader = SubResource( 2 )
 shader/shading_mode = 0
 shader_param/normal = ExtResource( 2 )
 
-[sub_resource type="CircleShape2D" id=14]
+[sub_resource type="CircleShape2D" id=4]
 
 custom_solver_bias = 0.0
 radius = 10.0
 
-[sub_resource type="SampleLibrary" id=7]
+[sub_resource type="SampleLibrary" id=5]
 
 samples/balloon = { "db":0.0, "pitch":1.0, "sample":ExtResource( 4 ) }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=6]
 
 length = 1.0
 loop = false
@@ -51,7 +51,7 @@ tracks/2/interp = 1
 tracks/2/imported = false
 tracks/2/keys = { "times":FloatArray( 0, 0.1 ), "transitions":FloatArray( 1, 1 ), "update":1, "values":[ true, false ] }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=7]
 
 resource/name = "init"
 length = 1.0
@@ -75,7 +75,7 @@ mode = 0
 mass = 1.0
 friction = 1.0
 bounce = 0.0
-gravity_scale = -4.0
+gravity_scale = -6.0
 custom_integrator = false
 continuous_cd = 0
 contacts_reported = 0
@@ -96,7 +96,7 @@ debug_explode = false
 [node name="Balloon" type="Sprite" parent="."]
 
 visibility/opacity = 0.8
-material/material = SubResource( 20 )
+material/material = SubResource( 3 )
 transform/scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 3 )
 modulate = Color( 0.901961, 0.909804, 0.176471, 1 )
@@ -113,7 +113,7 @@ _update_shape_index = 0
 [node name="Area2D" type="Area2D" parent="."]
 
 input/pickable = true
-shapes/0/shape = SubResource( 14 )
+shapes/0/shape = SubResource( 4 )
 shapes/0/transform = Matrix32( 3.3235, 0, 0, 4.14838, -0.171517, -4.47904 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -127,7 +127,7 @@ __meta__ = { "_edit_lock_":true }
 visibility/visible = false
 transform/pos = Vector2( -0.171517, -4.47904 )
 transform/scale = Vector2( 3.3235, 4.14838 )
-shape = SubResource( 14 )
+shape = SubResource( 4 )
 trigger = false
 _update_shape_index = 0
 
@@ -139,7 +139,7 @@ params/attenuation/min_distance = 1.0
 params/attenuation/max_distance = 2048.0
 params/attenuation/distance_exp = 1.0
 config/polyphony = 1
-config/samples = SubResource( 7 )
+config/samples = SubResource( 5 )
 config/pitch_random = 0.0
 
 [node name="Particles2D" type="Particles2D" parent="."]
@@ -179,8 +179,8 @@ color/color = Color( 0.901961, 0.909804, 0.176471, 1 )
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/explode = SubResource( 8 )
-anims/init = SubResource( 9 )
+anims/explode = SubResource( 6 )
+anims/init = SubResource( 7 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]

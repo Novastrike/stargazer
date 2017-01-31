@@ -22,13 +22,12 @@ modulate = Color( 0.682353, 0.12549, 0.682353, 1 )
 transform/pos = Vector2( -41.7839, 52.1409 )
 transform/rot = 93.3458
 z/z = 1
-modulate = Color( 0.682353, 0.12549, 0.682353, 1 )
 
 [node name="BalloonBody3" parent="." instance=ExtResource( 2 )]
 
 transform/pos = Vector2( 0, 7 )
 z/z = 1
-modulate = Color( 0.156863, 0.352941, 0.858824, 1 )
+modulate = Color( 0.682353, 0.12549, 0.682353, 1 )
 
 [node name="Balloon1+Player" type="PinJoint2D" parent="."]
 

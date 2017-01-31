@@ -9,6 +9,6 @@ script/script = ExtResource( 1 )
 
 [node name="SceneBase" parent="." instance=ExtResource( 2 )]
 
-[connection signal="end" from="SceneBase" to="." method="_on_SceneBase_end"]
+[connection signal="end" from="SceneBase" to="." method="_on_scene_end"]
 
 

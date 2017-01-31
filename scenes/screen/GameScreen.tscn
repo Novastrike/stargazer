@@ -51,17 +51,17 @@ tracks/0/type = "value"
 tracks/0/path = NodePath("MainLayer/BalloonPlayer/Player/Camera2D:offset")
 tracks/0/interp = 1
 tracks/0/imported = false
-tracks/0/keys = { "times":FloatArray( 0, 2.1, 6 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( 0, 100 ), Vector2( 0, 100 ), Vector2( 0, -200 ) ] }
+tracks/0/keys = { "times":FloatArray( 0, 2.1, 6 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( 0, 100 ), Vector2( 0, 100 ), Vector2( 0, -300 ) ] }
 tracks/1/type = "value"
-tracks/1/path = NodePath("HUD/title_graphic:visibility/opacity")
+tracks/1/path = NodePath("MainLayer/BalloonPlayer/Player/Camera2D:zoom")
 tracks/1/interp = 1
 tracks/1/imported = false
-tracks/1/keys = { "times":FloatArray( 0, 2.1, 6 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ 1.0, 1.0, 0.0 ] }
+tracks/1/keys = { "times":FloatArray( 0, 2.1, 6 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.5, 1.5 ) ] }
 tracks/2/type = "value"
-tracks/2/path = NodePath("MainLayer/BalloonPlayer/Player/Camera2D:zoom")
+tracks/2/path = NodePath("HUD/title_graphic:visibility/opacity")
 tracks/2/interp = 1
 tracks/2/imported = false
-tracks/2/keys = { "times":FloatArray( 0, 2.1, 6 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.5, 1.5 ) ] }
+tracks/2/keys = { "times":FloatArray( 0, 2.1, 6 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ 1.0, 1.0, 0.0 ] }
 tracks/3/type = "value"
 tracks/3/path = NodePath("HUD/GameHUD/AnimationPlayer:playback/play")
 tracks/3/interp = 1
@@ -415,20 +415,24 @@ flip_h = true
 
 [node name="BalloonPlayer" parent="MainLayer" instance=ExtResource( 14 )]
 
-editor/display_folded = true
 transform/pos = Vector2( 239, 185 )
 
 [node name="BalloonBody" parent="MainLayer/BalloonPlayer"]
 
-modulate = Color( 0.929412, 0.12549, 0.141176, 1 )
+modulate = Color( 0.682353, 0.12549, 0.682353, 1 )
+
+[node name="BalloonBody2" parent="MainLayer/BalloonPlayer"]
+
+modulate = Color( 0.156863, 0.352941, 0.858824, 1 )
 
 [node name="BalloonBody3" parent="MainLayer/BalloonPlayer"]
 
-modulate = Color( 0.129412, 0.741176, 0.172549, 1 )
+modulate = Color( 0.901961, 0.909804, 0.176471, 1 )
 
 [node name="Camera2D" parent="MainLayer/BalloonPlayer/Player"]
 
-offset = Vector2( 0, 100 )
+offset = Vector2( 0, -200 )
+zoom = Vector2( 1.5, 1.5 )
 
 [node name="SpawnerArea" parent="MainLayer" instance=ExtResource( 15 )]
 
@@ -436,6 +440,7 @@ test_scene = null
 
 [node name="SpawnerTimer" parent="MainLayer" instance=ExtResource( 16 )]
 
+wait_time = 2.0
 object_scene = ExtResource( 17 )
 spawner_area = "spawner-area"
 spawn = false
@@ -543,11 +548,14 @@ scale = Vector2( 1, 1 )
 
 [node name="title_graphic" type="Sprite" parent="HUD"]
 
+visibility/opacity = 0.0
 transform/pos = Vector2( 237, 91 )
 transform/scale = Vector2( 0.419922, 0.419922 )
 texture = ExtResource( 18 )
 
 [node name="GameHUD" parent="HUD" instance=ExtResource( 19 )]
+
+[node name="MiniTuto" parent="HUD/GameHUD"]
 
 visibility/opacity = 0.0
 
