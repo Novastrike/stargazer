@@ -26,6 +26,6 @@ extends Node
 func _ready():
 	pass
 
-
 func _on_TitleScreen_game_over():
-	get_parent().end = true
+	print('Game Over')
+	get_parent()._set_end(true)
