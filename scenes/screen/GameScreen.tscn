@@ -418,9 +418,9 @@ flip_h = true
 editor/display_folded = true
 transform/pos = Vector2( 239, 185 )
 
-[node name="BalloonBody2" parent="MainLayer/BalloonPlayer"]
+[node name="BalloonBody" parent="MainLayer/BalloonPlayer"]
 
-modulate = Color( 0.682353, 0.12549, 0.682353, 1 )
+modulate = Color( 0.929412, 0.12549, 0.141176, 1 )
 
 [node name="BalloonBody3" parent="MainLayer/BalloonPlayer"]
 

@@ -1,15 +1,22 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://scenes/screen/SceneBase.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/screen/GameScreen.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/screen/TitleScreen.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/core/GameManager.gd" type="Script" id=2]
+[ext_resource path="res://scenes/screen/GameScreen.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/screen/TitleScreen.tscn" type="PackedScene" id=4]
 
 [node name="MainScene" instance=ExtResource( 1 )]
 
+next_scene = "res://scenes/screen/FinalScoreScreen.tscn"
+
 [node name="GameManager" type="Node" parent="."]
 
-[node name="TitleScreen" parent="." instance=ExtResource( 2 )]
+script/script = ExtResource( 2 )
 
-[node name="TitleScreenAudio" parent="." instance=ExtResource( 3 )]
+[node name="TitleScreen" parent="." instance=ExtResource( 3 )]
+
+[node name="TitleScreenAudio" parent="." instance=ExtResource( 4 )]
+
+[connection signal="game_over" from="TitleScreen" to="GameManager" method="_on_TitleScreen_game_over"]
 
 

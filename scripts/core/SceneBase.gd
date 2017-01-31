@@ -35,5 +35,6 @@ func _ready():
 func _set_end(val):
 	end = val
 	if end:
+		print("SCENE END")
 		emit_signal('end', next_scene)
 

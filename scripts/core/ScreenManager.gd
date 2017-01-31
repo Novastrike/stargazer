@@ -28,10 +28,15 @@ func _ready():
 	pass
 
 func change_scene(scene_path):
-	remove_child(get_child(0))
+	get_child(0).queue_free()
 	var next_scene = load(scene_path).instance()
+	add_child(next_scene)
 	next_scene.connect('end', self, '_on_scene_end')
 
 func _on_scene_end(next):
+	print(next)
 	change_scene(next)
 
+
+func _on_SceneBase_end( next ):
+	_on_scene_end(next)
