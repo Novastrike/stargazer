@@ -1,13 +1,17 @@
 [gd_scene load_steps=4 format=1]
 
-[ext_resource path="res://assets/constellations/cancer.tres" type="Curve2D" id=1]
-[ext_resource path="res://scripts/core/Constellation.gd" type="Script" id=2]
-[ext_resource path="res://scenes/core/StarMini.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/core/Constellation.gd" type="Script" id=1]
+[ext_resource path="res://scenes/core/StarMini.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = { "points":Vector2Array(  ) }
 
 [node name="Constellation" type="Path2D"]
 
-curve = ExtResource( 1 )
-script/script = ExtResource( 2 )
-star = ExtResource( 3 )
+curve = SubResource( 1 )
+script/script = ExtResource( 1 )
+star = ExtResource( 2 )
 
 

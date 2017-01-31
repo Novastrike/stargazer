@@ -12,24 +12,24 @@
 [ext_resource path="res://scripts/core/FinalScore.gd" type="Script" id=10]
 [ext_resource path="res://scripts/core/ScoreButton.gd" type="Script" id=11]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 
 font/size = 32
 font/use_mipmaps = true
 font/use_filter = true
 font/font = ExtResource( 9 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 
 font/size = 26
 font/use_mipmaps = true
 font/use_filter = true
 font/font = ExtResource( 9 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 
 resource/name = "hide"
-length = 1.0
+length = 3.0
 loop = false
 step = 0.1
 tracks/0/type = "value"
@@ -37,8 +37,18 @@ tracks/0/path = NodePath("Label:visibility/opacity")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 1.0, 0.0 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("../ColorFrame:visibility/opacity")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 1, 3 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0.0, 1.0 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("../..:end")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 3 ), "transitions":FloatArray( 1, 1 ), "update":1, "values":[ false, true ] }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 
 resource/name = "init"
 length = 1.0
@@ -62,9 +72,8 @@ tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0.0, 1.0 ] }
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=6]
 
-resource/name = "New Anim"
 length = 60.0
 loop = false
 step = 1.0
@@ -78,6 +87,11 @@ tracks/1/path = NodePath("HUD/FinalScore:visibility/opacity")
 tracks/1/interp = 1
 tracks/1/imported = false
 tracks/1/keys = { "times":FloatArray( 0, 3 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0.0, 1.0 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("HUD/ColorFrame:visibility/opacity")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 3 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 1.0, 0.0 ] }
 
 [node name="FinalScore" instance=ExtResource( 1 )]
 
@@ -93,7 +107,7 @@ scale = Vector2( 1, 1 )
 [node name="ScrollingBg" type="Node2D" parent="SkyCanvas"]
 
 transform/pos = Vector2( 239, 603 )
-transform/rot = -5.4
+transform/rot = 6.0
 
 [node name="SkyBg" type="TextureFrame" parent="SkyCanvas/ScrollingBg"]
 
@@ -163,7 +177,7 @@ margin/left = 210.0
 margin/top = 575.0
 margin/right = 450.0
 margin/bottom = 639.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_shadow = Color( 0.27289, 0.107666, 0.492188, 1 )
 custom_constants/shadow_offset_x = 1
 custom_constants/shadow_offset_y = 1
@@ -193,7 +207,6 @@ script/script = ExtResource( 11 )
 
 [node name="Label" type="Label" parent="HUD/BackButton"]
 
-visibility/opacity = 0.6
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -202,7 +215,7 @@ margin/left = 0.0
 margin/top = 384.0
 margin/right = 480.0
 margin/bottom = 448.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0.128472, 0.0426483, 0.253906, 1 )
 text = "Press again to back to title screen"
 align = 1
@@ -216,20 +229,33 @@ max_lines_visible = -1
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/hide = SubResource( 4 )
-anims/init = SubResource( 6 )
+anims/hide = SubResource( 3 )
+anims/init = SubResource( 4 )
 anims/show = SubResource( 5 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = "init"
 
+[node name="ColorFrame" type="ColorFrame" parent="HUD"]
+
+visibility/opacity = 0.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 480.0
+margin/bottom = 640.0
+color = Color( 0, 0, 0, 1 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-"anims/New Anim" = SubResource( 1 )
+"anims/New Anim" = SubResource( 6 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]

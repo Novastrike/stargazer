@@ -28,4 +28,7 @@ func _ready():
 
 func _on_TitleScreen_game_over():
 	print('Game Over')
+	get_parent().get_node("CanvasLayer/AnimationPlayer").play("gameover")
+
+func _on_AnimationPlayer_finished():
 	get_parent()._set_end(true)
