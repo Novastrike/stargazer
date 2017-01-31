@@ -87,7 +87,9 @@ velocity/angular = 0.0
 damp_override/linear = -1.0
 damp_override/angular = -1.0
 script/script = ExtResource( 1 )
-modulate = Color( 1, 1, 1, 1 )
+modulate = Color( 0.901961, 0.909804, 0.176471, 1 )
+random_color = true
+color_list = [ Color( 0.682353, 0.12549, 0.682353, 1 ), Color( 0.929412, 0.12549, 0.141176, 1 ), Color( 0.156863, 0.352941, 0.858824, 1 ), Color( 0.129412, 0.741176, 0.172549, 1 ), Color( 0.901961, 0.909804, 0.176471, 1 ) ]
 debug = false
 debug_explode = false
 
@@ -97,6 +99,7 @@ visibility/opacity = 0.8
 material/material = SubResource( 20 )
 transform/scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 3 )
+modulate = Color( 0.901961, 0.909804, 0.176471, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
@@ -169,6 +172,7 @@ randomness/linear_velocity = 1.0
 randomness/initial_size = 1.0
 randomness/final_size = 1.0
 randomness/anim_initial_pos = 1.0
+color/color = Color( 0.901961, 0.909804, 0.176471, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
@@ -185,6 +189,7 @@ autoplay = "init"
 [node name="Rope" type="Position2D" parent="."]
 
 transform/pos = Vector2( 0, 40 )
+transform/rot = 45.0
 
 [connection signal="body_enter" from="Area2D" to="." method="_on_Area2D_body_enter"]
 

@@ -28,6 +28,8 @@ extends RigidBody2D
 signal explode
 
 export(Color) var modulate = Color(1, 1, 1) setget _set_sprite_modulate
+export(bool) var random_color = true
+export(Array) var color_list = []
 export(bool) var debug = false
 export(bool) var debug_explode = false
 
@@ -35,7 +37,9 @@ onready var anime = get_node('AnimationPlayer')
 
 
 func _ready():
-	pass
+	if random_color:
+		randomize()
+		_set_sprite_modulate(color_list[rand_range(0, color_list.size())])
 
 func _set_sprite_modulate(color):
 	if has_node("Balloon"):
