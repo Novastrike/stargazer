@@ -401,6 +401,14 @@ flip_h = true
 
 transform/pos = Vector2( 239, 185 )
 
+[node name="BalloonBody" parent="MainLayer/BalloonPlayer"]
+
+modulate = Color( 0.156863, 0.352941, 0.858824, 1 )
+
+[node name="BalloonBody2" parent="MainLayer/BalloonPlayer"]
+
+modulate = Color( 0.129412, 0.741176, 0.172549, 1 )
+
 [node name="BalloonBody3" parent="MainLayer/BalloonPlayer"]
 
 modulate = Color( 0.156863, 0.352941, 0.858824, 1 )
@@ -427,10 +435,6 @@ texture = ExtResource( 14 )
 [node name="MiniTuto" parent="HUD/GameHUD"]
 
 visibility/opacity = 0.0
-
-[node name="Score" parent="HUD/GameHUD"]
-
-text = ""
 
 
 [editable path="MainLayer/BalloonPlayer"]
