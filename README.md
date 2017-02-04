@@ -1,5 +1,9 @@
 # Stargazer★
 
+![code license](https://img.shields.io/badge/code-MIT%20License-blue.svg)
+![assets license](https://img.shields.io/badge/assets-CC%20BY--NC--SA-blue.svg)
+![Godot version](https://img.shields.io/badge/godot-v2.2-blue.svg)
+
     Godot Game Jam 2017 Entry. All assets produced within the duration of the Jam.
 
 ![Stargazer-titlescreen](https://t.gyazo.com/teams/thetimetunnel/992e401293ede3d5e28b911a38f34f7c.png)
@@ -21,7 +25,7 @@ The idea of a floaty, dreamy game involving balloons is an old dream of ours. We
 
 Fighting against the visual simplicity of similar games in the indie scene, Stargazer features lush visuals and art, all drawn by Gors and put into life by Tumeo and Vinicius. To top it off, the game's piano soundtrack and ambiance wrap the game nicely, in a pack of instant relaxation. It's a nighttime experience, but at any time, in your device.
 
-I have been posting the development progress of this game on my Twitter @spritergors and on Tumeo's Twitter @williamd1k0. Some extra footage of the game and insights are there (Twitter Moments with the game jam progress).
+I have been posting the development progress of this game on my Twitter [@spritergors](https://twitter.com/spritergors) and on Tumeo's Twitter [@williamd1k0](https://twitter.com/williamd1k0). Some extra footage of the game and insights are there ([Twitter Moments](https://twitter.com/i/moments/820498925165674496) with the game jam progress).
 
 # Credits
 
